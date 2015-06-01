@@ -1,6 +1,7 @@
 *.obj
 *.pdb
 *.suo
+*.user
 *.vspscc
 *.vssscc
 [Bb]in
