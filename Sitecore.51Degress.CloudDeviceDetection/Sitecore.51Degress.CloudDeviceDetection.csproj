@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C1432820-20E5-451A-A5DC-61BA93EF5F8F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sitecore.FiftyOneDegress.CloudDeviceDetection</RootNamespace>
+    <AssemblyName>Sitecore.51Degress.CloudDeviceDetection</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Sitecore.Kernel">
+      <HintPath>..\References\Sitecore.Kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\DeviceIds.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Data\DetectedDevice.cs" />
+    <Compile Include="Services\DeviceService.cs" />
+    <Compile Include="Services\FiftyOneDegreesService.cs" />
+    <Compile Include="Services\Serializer.cs" />
+    <Compile Include="Settings\SitecoreSettingsWrapper.cs" />
+    <Compile Include="Sitecore\Pipelines\HttpRequestBegin\DeviceDetection\DefaultDeviceDetector.cs" />
+    <Compile Include="Sitecore\Pipelines\HttpRequestBegin\DeviceDetection\DeviceDetector.cs" />
+    <Compile Include="Sitecore\Pipelines\HttpRequestBegin\DeviceDetection\DeviceIdResolvingProcessor.cs" />
+    <Compile Include="Sitecore\Pipelines\HttpRequestBegin\DeviceDetection\LoadDeviceItem.cs" />
+    <Compile Include="Sitecore\Pipelines\HttpRequestBegin\DeviceDetection\PageModeDetector.cs" />
+    <Compile Include="Sitecore\Pipelines\HttpRequestBegin\DeviceDetection\ResolveMobileDevicePipelineArgs.cs" />
+    <Compile Include="Sitecore\Pipelines\HttpRequestBegin\DeviceDetection\ResolveMobileDeviceProcessor.cs" />
+    <Compile Include="Sitecore\Pipelines\HttpRequestBegin\DeviceDetection\SiteDetector.cs" />
+    <Compile Include="System\Wrappers\HttpContextWrapper.cs" />
+    <Compile Include="System\Wrappers\HttpRequestWrapper.cs" />
+    <Compile Include="System\Wrappers\HttpRuntimeCacheWrapper.cs" />
+    <Compile Include="System\Wrappers\HttpRuntimeWrapper.cs" />
+    <Compile Include="System\Wrappers\WebRequestWrapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App_Config\Include\Sitecore.51Degrees.CloudDeviceDetection.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

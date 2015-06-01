@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.51Degress.CloudDeviceDetection", "Sitecore.51Degress.CloudDeviceDetection\Sitecore.51Degress.CloudDeviceDetection.csproj", "{C1432820-20E5-451A-A5DC-61BA93EF5F8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.51Degress.CloudDeviceDetection.Tests", "Sitecore.51Degress.CloudDeviceDetection.Tests\Sitecore.51Degress.CloudDeviceDetection.Tests.csproj", "{AAEEF81E-FE03-4A04-9B48-2EBC552311D6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C1432820-20E5-451A-A5DC-61BA93EF5F8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1432820-20E5-451A-A5DC-61BA93EF5F8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1432820-20E5-451A-A5DC-61BA93EF5F8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1432820-20E5-451A-A5DC-61BA93EF5F8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAEEF81E-FE03-4A04-9B48-2EBC552311D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAEEF81E-FE03-4A04-9B48-2EBC552311D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAEEF81E-FE03-4A04-9B48-2EBC552311D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAEEF81E-FE03-4A04-9B48-2EBC552311D6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

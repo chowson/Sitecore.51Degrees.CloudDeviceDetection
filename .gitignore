@@ -1,0 +1,10 @@
+*.obj
+*.pdb
+*.suo
+*.vspscc
+*.vssscc
+[Bb]in
+obj/
+References
+packages/**/*.*
+!packages/repositories.config
