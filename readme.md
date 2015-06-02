@@ -1,20 +1,18 @@
-What does it do?
+##What does it do?
 
 This project provides device detection for Sitecore using the cloud web service provided by 51 Degrees (https://51degrees.com/products/device-detection/cloud).
 
-What prerequisites do you need?
+##What prerequisites do you need?
 
 To use this module, you will need to sign up for an account with 51 degrees.
 
-Installation
+##Installation
 
-1) Install the Sitecore package _/SitecorePackages/Sitecore.51Degrees.CloudDeviceDetection.zip_
+1. Install the Sitecore package _/SitecorePackages/Sitecore.51Degrees.CloudDeviceDetection.zip_
+2. Open _/App_Config/Include/Sitecore.51Degrees.CloudDeviceDetection.config_ and enter your license key in the setting _Sitecore.FiftyOneDegrees.CloudDeviceDetection.ApiLicenceKey_
+3. Create additional Sitecore device items to represent mobile and tablets as required.
 
-2) Open _/App_Config/Include/Sitecore.51Degrees.CloudDeviceDetection.config_ and enter your license key in the setting _Sitecore.FiftyOneDegrees.CloudDeviceDetection.ApiLicenceKey_
-
-3) Create additional Sitecore device items to represent mobile and tablets as required.
-
-Customisations
+##Customisations
 
 By default, the module will switch to a device by naming convention, so if a request is found to be a mobile or tablet the module will try and find a device named mobile or tablet. You can override this in the configuration file _Sitecore.51Degrees.CloudDeviceDetection.config_ by adding the IDs of the devices for each device type. These settings are:
 
