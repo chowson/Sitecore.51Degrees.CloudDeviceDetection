@@ -1,9 +1,9 @@
 ﻿using Moq;
 using NUnit.Framework;
-using Sitecore.FiftyOneDegress.CloudDeviceDetection.Data;
-using Sitecore.FiftyOneDegress.CloudDeviceDetection.Services;
+using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Data;
+using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services;
 
-namespace Sitecore.FiftyOneDegress.CloudDeviceDetection.Tests.Services
+namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Tests.Services
 {
     [TestFixture]
     public class DeviceServiceTests

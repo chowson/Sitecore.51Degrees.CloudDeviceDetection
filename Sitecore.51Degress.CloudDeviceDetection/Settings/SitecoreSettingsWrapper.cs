@@ -1,4 +1,4 @@
-﻿namespace Sitecore.FiftyOneDegress.CloudDeviceDetection.Settings
+﻿namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Settings
 {
     public interface ISitecoreSettingsWrapper
     {

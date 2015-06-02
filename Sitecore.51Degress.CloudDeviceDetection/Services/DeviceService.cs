@@ -1,6 +1,6 @@
-﻿using Sitecore.FiftyOneDegress.CloudDeviceDetection.Data;
+﻿using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Data;
 
-namespace Sitecore.FiftyOneDegress.CloudDeviceDetection.Services
+namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services
 {
     public interface IDeviceService
     {

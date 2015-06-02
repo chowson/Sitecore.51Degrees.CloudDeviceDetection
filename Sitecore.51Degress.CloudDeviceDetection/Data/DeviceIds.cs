@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
-using Sitecore.FiftyOneDegress.CloudDeviceDetection.Settings;
+using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Settings;
 
-namespace Sitecore.FiftyOneDegress.CloudDeviceDetection.Data
+namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Data
 {
     public interface IDeviceIds
     {
@@ -26,7 +26,7 @@ namespace Sitecore.FiftyOneDegress.CloudDeviceDetection.Data
         {
             get
             {
-                return GetDeviceIdWithNameFallback("Sitecore.FiftyOneDegress.CloudDeviceDetection.DefaultDeviceId", "Default");
+                return GetDeviceIdWithNameFallback("Sitecore.FiftyOneDegrees.CloudDeviceDetection.DefaultDeviceId", "Default");
             }
         }
 
@@ -34,7 +34,7 @@ namespace Sitecore.FiftyOneDegress.CloudDeviceDetection.Data
         {
             get
             {
-                return GetDeviceIdWithNameFallback("Sitecore.FiftyOneDegress.CloudDeviceDetection.MobileDeviceId", "Mobile");
+                return GetDeviceIdWithNameFallback("Sitecore.FiftyOneDegrees.CloudDeviceDetection.MobileDeviceId", "Mobile");
             }
         }
 
@@ -42,7 +42,7 @@ namespace Sitecore.FiftyOneDegress.CloudDeviceDetection.Data
         {
             get
             {
-                return GetDeviceIdWithNameFallback("Sitecore.FiftyOneDegress.CloudDeviceDetection.TabletDeviceId", "Tablet");
+                return GetDeviceIdWithNameFallback("Sitecore.FiftyOneDegrees.CloudDeviceDetection.TabletDeviceId", "Tablet");
             }
         }
 

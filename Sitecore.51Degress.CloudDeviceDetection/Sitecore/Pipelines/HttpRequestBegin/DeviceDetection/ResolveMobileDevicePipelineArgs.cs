@@ -1,7 +1,7 @@
 ﻿using Sitecore.Data.Items;
 using Sitecore.Pipelines;
 
-namespace Sitecore.FiftyOneDegress.CloudDeviceDetection.Sitecore.Pipelines.HttpRequestBegin.DeviceDetection
+namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Sitecore.Pipelines.HttpRequestBegin.DeviceDetection
 {
     public class ResolveMobileDevicePipelineArgs : PipelineArgs
     {

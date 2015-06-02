@@ -1,4 +1,4 @@
-﻿namespace Sitecore.FiftyOneDegress.CloudDeviceDetection.Services.Data
+﻿namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services.Data
 {
     public class DetectedDevice
     {

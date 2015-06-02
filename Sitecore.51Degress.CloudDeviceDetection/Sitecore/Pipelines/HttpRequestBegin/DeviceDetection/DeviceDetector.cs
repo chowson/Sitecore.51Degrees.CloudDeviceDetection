@@ -1,10 +1,10 @@
 ﻿using Sitecore.Data;
-using Sitecore.FiftyOneDegress.CloudDeviceDetection.Data;
-using Sitecore.FiftyOneDegress.CloudDeviceDetection.Settings;
+using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Data;
+using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Settings;
 using Sitecore.Pipelines;
 using Sitecore.Pipelines.HttpRequest;
 
-namespace Sitecore.FiftyOneDegress.CloudDeviceDetection.Sitecore.Pipelines.HttpRequestBegin.DeviceDetection
+namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Sitecore.Pipelines.HttpRequestBegin.DeviceDetection
 {
     public class DeviceDetector : HttpRequestProcessor
     {

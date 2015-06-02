@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.51Degress.CloudDeviceDetection", "Sitecore.51Degress.CloudDeviceDetection\Sitecore.51Degress.CloudDeviceDetection.csproj", "{C1432820-20E5-451A-A5DC-61BA93EF5F8F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.51Degrees.CloudDeviceDetection", "Sitecore.51Degress.CloudDeviceDetection\Sitecore.51Degrees.CloudDeviceDetection.csproj", "{C1432820-20E5-451A-A5DC-61BA93EF5F8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.51Degress.CloudDeviceDetection.Tests", "Sitecore.51Degress.CloudDeviceDetection.Tests\Sitecore.51Degress.CloudDeviceDetection.Tests.csproj", "{AAEEF81E-FE03-4A04-9B48-2EBC552311D6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.51Degrees.CloudDeviceDetection.Tests", "Sitecore.51Degress.CloudDeviceDetection.Tests\Sitecore.51Degrees.CloudDeviceDetection.Tests.csproj", "{AAEEF81E-FE03-4A04-9B48-2EBC552311D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

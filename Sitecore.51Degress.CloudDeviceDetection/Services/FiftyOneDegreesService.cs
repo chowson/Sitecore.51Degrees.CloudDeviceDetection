@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Web;
-using Sitecore.FiftyOneDegress.CloudDeviceDetection.Services.Data;
-using Sitecore.FiftyOneDegress.CloudDeviceDetection.Settings;
-using Sitecore.FiftyOneDegress.CloudDeviceDetection.System.Wrappers;
+using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services.Data;
+using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Settings;
+using Sitecore.FiftyOneDegrees.CloudDeviceDetection.System.Wrappers;
 
-namespace Sitecore.FiftyOneDegress.CloudDeviceDetection.Services
+namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services
 {
     public interface IFiftyOneDegreesService
     {
@@ -107,13 +107,13 @@ namespace Sitecore.FiftyOneDegress.CloudDeviceDetection.Services
 
         private static string CacheKey(string userAgent)
         {
-            return string.Format("Sitecore.FiftyOneDegress.CloudDeviceDetection.FiftyOneDegreesService.IsMobileDevice({0})", userAgent);
+            return string.Format("Sitecore.FiftyOneDegrees.CloudDeviceDetection.FiftyOneDegreesService.IsMobileDevice({0})", userAgent);
         }
 
         private string ApiEndpointUrl(string userAgent)
         {
-            var apiLicenceKey = _sitecoreSettingsWrapper.GetSetting("Sitecore.FiftyOneDegress.CloudDeviceDetection.ApiLicenceKey");
-            var apiEndpointUrl = _sitecoreSettingsWrapper.GetSetting("Sitecore.FiftyOneDegress.CloudDeviceDetection.ApiEndpoint");
+            var apiLicenceKey = _sitecoreSettingsWrapper.GetSetting("Sitecore.FiftyOneDegrees.CloudDeviceDetection.ApiLicenceKey");
+            var apiEndpointUrl = _sitecoreSettingsWrapper.GetSetting("Sitecore.FiftyOneDegrees.CloudDeviceDetection.ApiEndpoint");
 
             return string.Format(apiEndpointUrl, apiLicenceKey, HttpUtility.UrlEncode(userAgent));
         }

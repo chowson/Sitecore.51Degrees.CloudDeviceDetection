@@ -2,12 +2,12 @@
 using System.Threading;
 using Moq;
 using NUnit.Framework;
-using Sitecore.FiftyOneDegress.CloudDeviceDetection.Services;
-using Sitecore.FiftyOneDegress.CloudDeviceDetection.Services.Data;
-using Sitecore.FiftyOneDegress.CloudDeviceDetection.Settings;
-using Sitecore.FiftyOneDegress.CloudDeviceDetection.System.Wrappers;
+using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services;
+using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services.Data;
+using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Settings;
+using Sitecore.FiftyOneDegrees.CloudDeviceDetection.System.Wrappers;
 
-namespace Sitecore.FiftyOneDegress.CloudDeviceDetection.Tests.Services
+namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Tests.Services
 {
     [TestFixture]
     public class FiftyOneDegreesServiceTests
@@ -64,13 +64,13 @@ namespace Sitecore.FiftyOneDegress.CloudDeviceDetection.Tests.Services
         private readonly FiftyOneDegreesService _fiftyOneDegreesService;
         private const string FiftyOneDegreesEndpoint = "http://endpoint/{0}/?useragent={1}";
         private const string LicenceKey = "LicenceKey";
-        private const string CacheKey = "Sitecore.FiftyOneDegress.CloudDeviceDetection.FiftyOneDegreesService.IsMobileDevice({0})";
+        private const string CacheKey = "Sitecore.FiftyOneDegrees.CloudDeviceDetection.FiftyOneDegreesService.IsMobileDevice({0})";
 
         private FiftyOneDegreesServiceTester()
         {
             var sitecoreSettingsWrapper = new Mock<ISitecoreSettingsWrapper>();
-            sitecoreSettingsWrapper.Setup(x => x.GetSetting("Sitecore.FiftyOneDegress.CloudDeviceDetection.ApiLicenceKey")).Returns(LicenceKey);
-            sitecoreSettingsWrapper.Setup(x => x.GetSetting("Sitecore.FiftyOneDegress.CloudDeviceDetection.ApiEndpoint")).Returns(FiftyOneDegreesEndpoint);
+            sitecoreSettingsWrapper.Setup(x => x.GetSetting("Sitecore.FiftyOneDegrees.CloudDeviceDetection.ApiLicenceKey")).Returns(LicenceKey);
+            sitecoreSettingsWrapper.Setup(x => x.GetSetting("Sitecore.FiftyOneDegrees.CloudDeviceDetection.ApiEndpoint")).Returns(FiftyOneDegreesEndpoint);
 
             _httpRuntimeCacheWrapper = new Mock<IHttpRuntimeCacheWrapper>();
             var httpRequestWrapper = new Mock<IHttpRequestWrapper>();

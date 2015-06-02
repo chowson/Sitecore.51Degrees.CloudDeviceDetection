@@ -1,4 +1,4 @@
-﻿namespace Sitecore.FiftyOneDegress.CloudDeviceDetection.Sitecore.Pipelines.HttpRequestBegin.DeviceDetection
+﻿namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Sitecore.Pipelines.HttpRequestBegin.DeviceDetection
 {
     public abstract class ResolveMobileDeviceProcessor
     {

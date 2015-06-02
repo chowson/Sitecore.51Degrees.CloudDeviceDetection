@@ -1,9 +1,9 @@
-﻿using Sitecore.FiftyOneDegress.CloudDeviceDetection.Data;
-using Sitecore.FiftyOneDegress.CloudDeviceDetection.Services;
-using Sitecore.FiftyOneDegress.CloudDeviceDetection.Settings;
-using Sitecore.FiftyOneDegress.CloudDeviceDetection.System.Wrappers;
+﻿using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Data;
+using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services;
+using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Settings;
+using Sitecore.FiftyOneDegrees.CloudDeviceDetection.System.Wrappers;
 
-namespace Sitecore.FiftyOneDegress.CloudDeviceDetection.Sitecore.Pipelines.HttpRequestBegin.DeviceDetection
+namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Sitecore.Pipelines.HttpRequestBegin.DeviceDetection
 {
     public class DeviceIdResolvingProcessor : ResolveMobileDeviceProcessor
     {

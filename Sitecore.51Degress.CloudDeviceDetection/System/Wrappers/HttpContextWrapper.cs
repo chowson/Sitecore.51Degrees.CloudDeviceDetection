@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using SystemDotNet = System;
 
-namespace Sitecore.FiftyOneDegress.CloudDeviceDetection.System.Wrappers
+namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.System.Wrappers
 {
     public interface IHttpContextWrapper
     {

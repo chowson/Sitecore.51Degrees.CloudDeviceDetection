@@ -1,7 +1,7 @@
-﻿using Sitecore.FiftyOneDegress.CloudDeviceDetection.Data;
-using Sitecore.FiftyOneDegress.CloudDeviceDetection.Settings;
+﻿using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Data;
+using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Settings;
 
-namespace Sitecore.FiftyOneDegress.CloudDeviceDetection.Sitecore.Pipelines.HttpRequestBegin.DeviceDetection
+namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Sitecore.Pipelines.HttpRequestBegin.DeviceDetection
 {
     public class DefaultDeviceDetector : ResolveMobileDeviceProcessor
     {

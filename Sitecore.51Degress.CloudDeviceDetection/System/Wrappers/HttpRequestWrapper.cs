@@ -1,6 +1,6 @@
 ﻿using System.Web;
 
-namespace Sitecore.FiftyOneDegress.CloudDeviceDetection.System.Wrappers
+namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.System.Wrappers
 {
     public interface IHttpRequestWrapper
     {

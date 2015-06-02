@@ -1,6 +1,6 @@
 ﻿using System.Web.Script.Serialization;
 
-namespace Sitecore.FiftyOneDegress.CloudDeviceDetection.Services
+namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services
 {
     public interface ISerializer
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Net;
-using Sitecore.FiftyOneDegress.CloudDeviceDetection.Services;
+using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services;
 
-namespace Sitecore.FiftyOneDegress.CloudDeviceDetection.System.Wrappers
+namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.System.Wrappers
 {
     public interface IWebRequestWrapper
     {
