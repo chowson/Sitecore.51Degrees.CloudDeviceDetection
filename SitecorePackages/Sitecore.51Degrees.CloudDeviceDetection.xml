@@ -1,0 +1,66 @@
+<project>
+  <Metadata>
+    <metadata>
+      <PackageName>Sitecore 51Degrees CloudDeviceDetection</PackageName>
+      <Author>chowson</Author>
+      <Version>1</Version>
+      <Revision />
+      <License />
+      <Comment />
+      <Attributes />
+      <Readme />
+      <Publisher />
+      <PostStep />
+      <PackageID />
+    </metadata>
+  </Metadata>
+  <SaveProject>True</SaveProject>
+  <Sources>
+    <xitems>
+      <Entries>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/{C1AC30E6-1592-4181-87A0-CDDE78150647}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Tags/{22A76464-A921-4232-A8AB-E192E3E8FB70}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Tags/Default/{DC9C682B-7D3E-4BD0-8C8B-D8D554A90512}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Visibility/{1BA43D50-0AA0-489F-A584-1504B5B287D8}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Visitors Device Type/{04213114-92EA-4A1F-BE21-5D7E4614B5F0}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Visitors Device Type/Devices/{C15C8E65-DA66-477D-965F-9394DB7B16AC}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Visitors Device Type/Devices/Mobile/{BA42D9E6-55B9-411B-873B-3EFCEB02E33E}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Visitors Device Type/Devices/Tablet/{C7F4CF1F-2ADF-479A-97F3-D7D8640F2661}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Tags/Device Detection/{36C2B7B6-6B46-4C41-9E78-230DA2C5EC90}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Tags/Device Detection/Visibility/{CD48100B-0447-443B-AF2D-A135466D4EDC}/invariant/0</x-item>
+      </Entries>
+      <SkipVersions>False</SkipVersions>
+      <Converter>
+        <ItemToEntryConverter>
+          <Transforms />
+        </ItemToEntryConverter>
+      </Converter>
+      <Include />
+      <Exclude />
+      <Name>Rules</Name>
+    </xitems>
+    <xfiles>
+      <Entries>
+        <x-item>/App_Config/Include/Sitecore.51Degrees.CloudDeviceDetection.config</x-item>
+        <x-item>/bin/Sitecore.51Degrees.CloudDeviceDetection.dll</x-item>
+      </Entries>
+      <Converter>
+        <FileToEntryConverter>
+          <Root>/</Root>
+          <Transforms />
+        </FileToEntryConverter>
+      </Converter>
+      <Include />
+      <Exclude />
+      <Name>Files</Name>
+    </xfiles>
+  </Sources>
+  <Converter>
+    <TrivialConverter>
+      <Transforms />
+    </TrivialConverter>
+  </Converter>
+  <Include />
+  <Exclude />
+  <Name />
+</project>

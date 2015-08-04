@@ -45,7 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\DeviceIds.cs" />
+    <Compile Include="Factories\FiftyOneDegreesServiceFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rules\DeviceDetection\VisitorsDeviceType.cs" />
     <Compile Include="Services\Data\DetectedDevice.cs" />
     <Compile Include="Services\DeviceService.cs" />
     <Compile Include="Services\FiftyOneDegreesService.cs" />
@@ -68,6 +70,7 @@
   <ItemGroup>
     <None Include="App_Config\Include\Sitecore.51Degrees.CloudDeviceDetection.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
