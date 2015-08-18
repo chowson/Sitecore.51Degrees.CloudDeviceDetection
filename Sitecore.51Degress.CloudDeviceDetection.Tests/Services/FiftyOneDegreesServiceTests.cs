@@ -120,7 +120,7 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Tests.Services
 
         internal FiftyOneDegreesServiceTester CacheIsWarm()
         {
-            _httpRuntimeCacheWrapper.Setup(x => x.Get<DetectedDevice>(FormattedCacheKey)).Returns(new DetectedDevice());
+            _httpRuntimeCacheWrapper.Setup(x => x.Get<DetectedDevice>(FormattedCacheKey)).Returns(new DetectedDevice(null));
             return this;
         }
 

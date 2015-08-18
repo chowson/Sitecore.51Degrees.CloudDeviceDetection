@@ -68,7 +68,9 @@
     <Compile Include="System\Wrappers\WebRequestWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App_Config\Include\Sitecore.51Degrees.CloudDeviceDetection.config" />
+    <None Include="App_Config\Include\Sitecore.51Degrees.CloudDeviceDetection.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services.Data;
 using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Settings;
@@ -11,6 +14,8 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services
         bool IsMobileDevice();
 
         bool IsTabletDevice();
+
+        DetectedDevice GetDetectedDevice();
     }
 
     public class FiftyOneDegreesService : IFiftyOneDegreesService
@@ -54,7 +59,7 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services
             return false;
         }
 
-        private DetectedDevice GetDetectedDevice()
+        public DetectedDevice GetDetectedDevice()
         {
             var userAgent = _httpContextWrapper.Request.UserAgent;
 
@@ -78,28 +83,14 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services
                 }
             }
 
-            return detectedDevice;
+            return detectedDevice;  
         }
 
         private static DetectedDevice ParseDeviceDetectionResult(dynamic deviceDetectionResult)
         {
-            if (deviceDetectionResult != null && deviceDetectionResult["Values"] != null)
+            if (deviceDetectionResult != null && deviceDetectionResult["Values"] != null && (deviceDetectionResult["Values"] as IDictionary<string, object>) != null)
             {
-                var detectedDevice = new DetectedDevice();
-
-                if (deviceDetectionResult["Values"]["DeviceType"] != null)
-                {
-                    detectedDevice.DeviceType = deviceDetectionResult["Values"]["DeviceType"][0];
-                }
-
-                if (deviceDetectionResult["Values"]["IsMobile"] != null)
-                {
-                    var isMobile = false;
-                    bool.TryParse(deviceDetectionResult["Values"]["IsMobile"][0], out isMobile);
-                    detectedDevice.IsMobile = isMobile;
-                }
-
-                return detectedDevice;
+                return new DetectedDevice(deviceDetectionResult["Values"] as IDictionary<string, object>);
             }
 
             return null;

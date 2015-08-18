@@ -11,6 +11,7 @@ To use this module, you will need to sign up for an account with 51 degrees.
 1. Install the Sitecore package _/SitecorePackages/Sitecore.51Degrees.CloudDeviceDetection.zip_
 2. Open _/App_Config/Include/Sitecore.51Degrees.CloudDeviceDetection.config_ and enter your license key in the setting _Sitecore.FiftyOneDegrees.CloudDeviceDetection.ApiLicenceKey_
 3. Create additional Sitecore device items to represent mobile and tablets as required.
+4. Add Device Detection ({36C2B7B6-6B46-4C41-9E78-230DA2C5EC90}) to /sitecore/system/Settings/Rules/Conditional Renderings/Tags/Default
 
 ##Customisations
 
