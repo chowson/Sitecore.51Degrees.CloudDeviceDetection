@@ -5,7 +5,7 @@ This project provides device detection for Sitecore using the cloud web service 
 It provides 2 things:
 
 1. An HttpRequestBegin pipeline step to match the requesting device and set the Sitecore device appropriately
-2. A set of rules that can be used as Conditional Renderings
+2. A set of rules that can be used for Conditional Renderings
 
 ##What prerequisites do you need?
 
@@ -21,12 +21,20 @@ To use this module, you will need to sign up for an account with 51 degrees.
 
 ##Customisations
 
-By default, the module will switch to a device by naming convention, so if a request is found to be a mobile or tablet the module will try and find a device named mobile or tablet. You can override this in the configuration file _Sitecore.51Degrees.CloudDeviceDetection.config_ by adding the IDs of the devices for each device type. These settings are:
+By default, the module will switch to a device by naming convention, so if a request is found to be a mobile or tablet the module will try and find a device item named mobile or tablet. You can override this in the configuration file _Sitecore.51Degrees.CloudDeviceDetection.config_ by adding the IDs of the devices for each device type. These settings are:
 
 * Sitecore.FiftyOneDegrees.CloudDeviceDetection.DefaultDeviceId
 * Sitecore.FiftyOneDegrees.CloudDeviceDetection.MobileDeviceId
 * Sitecore.FiftyOneDegrees.CloudDeviceDetection.TabletDeviceId
 
-A 51degrees endpoint is provided by default in the setting _Sitecore.FiftyOneDegrees.CloudDeviceDetection.ApiEndpoint_, you can override this but the module requires the values of _IsMobile_ and _DeviceType_ to function.
+A 51degrees endpoint is provided by default in the setting _Sitecore.FiftyOneDegrees.CloudDeviceDetection.ApiEndpoint_, you can override this but the module requires the values of _IsMobile_, _DeviceType_, _IsConsole_, _IsEReader_, _IsMediaHub_, _IsSmallScreen_, _IsSmartPhone_, _IsTablet_ and _IsTv_ to function.
 
 The additional device resolver step is plumbed in after the the default Sitecore device resolver and will only run if the Sitecore device resolver has resolved the device to the default device. If the default device has been resolved, then the module will run the new pipeline _resolveMobileDevice_. This has been split into several steps to allow additional steps to be inserted into the pipeline to customise it's behaviour.
+
+To extend the module further, you can add additional querystring parameters to the setting _Sitecore.FiftyOneDegrees.CloudDeviceDetection.ApiEndpoint_ based on the propery dictionary (https://51degrees.com/resources/property-dictionary). Once this is done, the new properties can be accessed by calling the following code:
+
+```
+var fiftyOneDegreesService = new FiftyOneDegreesServiceFactory().Create();
+var detectedDevice = _fiftyOneDegreesService.GetDetectedDevice();
+var propertyValue = detectedDevice[_propertyName_];
+```
