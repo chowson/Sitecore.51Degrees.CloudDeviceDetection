@@ -3,8 +3,9 @@
 This project provides device detection for Sitecore using the cloud web service provided by 51 Degrees (https://51degrees.com/products/device-detection/cloud).
 
 It provides 2 things:
+
 1. An HttpRequestBegin pipeline step to match the requesting device and set the Sitecore device appropriately
-2. A set of rules that can be used as Conditional Renderings
+2. 2. A set of rules that can be used as Conditional Renderings
 
 ##What prerequisites do you need?
 
