@@ -5,7 +5,15 @@ This project provides device detection for Sitecore using the cloud web service 
 It provides 2 things:
 
 1. An HttpRequestBegin pipeline step to match the requesting device and set the Sitecore device appropriately
-2. A set of rules that can be used for Conditional Renderings
+2. A set of rule that can be used for Conditional Renderings:
+  * when the visitor's device is a:
+    * Mobile
+    * Tablet
+    * Games Console
+    * eReader
+    * Media Hub
+    * Small Screen
+    * TV
 
 ##What prerequisites do you need?
 
