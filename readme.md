@@ -2,6 +2,10 @@
 
 This project provides device detection for Sitecore using the cloud web service provided by 51 Degrees (https://51degrees.com/products/device-detection/cloud).
 
+It provides 2 things:
+1. An HttpRequestBegin pipeline step to match the requesting device and set the Sitecore device appropriately
+2. A set of rules that can be used as Conditional Renderings
+
 ##What prerequisites do you need?
 
 To use this module, you will need to sign up for an account with 51 degrees.
@@ -10,8 +14,9 @@ To use this module, you will need to sign up for an account with 51 degrees.
 
 1. Install the Sitecore package _/SitecorePackages/Sitecore.51Degrees.CloudDeviceDetection.zip_
 2. Open _/App_Config/Include/Sitecore.51Degrees.CloudDeviceDetection.config_ and enter your license key in the setting _Sitecore.FiftyOneDegrees.CloudDeviceDetection.ApiLicenceKey_
-3. Create additional Sitecore device items to represent mobile and tablets as required.
-4. Add Device Detection ({36C2B7B6-6B46-4C41-9E78-230DA2C5EC90}) to /sitecore/system/Settings/Rules/Conditional Renderings/Tags/Default
+3. Add Device Detection (_{36C2B7B6-6B46-4C41-9E78-230DA2C5EC90}_) to /sitecore/system/Settings/Rules/Conditional Renderings/Tags/Default
+4. If you want the device detection HttpRequestBegin pipeline to run, then create additional Sitecore device items to represent mobile and tablets as required and update the _/App_Config/Include/Sitecore.51Degrees.CloudDeviceDetection.config_ Sitecore settings. If you do not want this running, remove the piepline step.
+
 
 ##Customisations
 
