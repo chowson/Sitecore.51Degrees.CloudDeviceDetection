@@ -60,7 +60,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Sitecore.51Degress.CloudDeviceDetection\Sitecore.51Degrees.CloudDeviceDetection.csproj">
+    <ProjectReference Include="..\Sitecore.51Degrees.CloudDeviceDetection\Sitecore.51Degrees.CloudDeviceDetection.csproj">
       <Project>{c1432820-20e5-451a-a5dc-61ba93ef5f8f}</Project>
       <Name>Sitecore.51Degrees.CloudDeviceDetection</Name>
     </ProjectReference>
