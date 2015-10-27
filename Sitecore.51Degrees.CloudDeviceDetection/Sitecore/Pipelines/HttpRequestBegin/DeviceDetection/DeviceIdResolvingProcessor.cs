@@ -1,6 +1,6 @@
-﻿using System;
+﻿﻿using System;
 using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Data;
-using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Factories;
+﻿using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Factories;
 using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services;
 using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Settings;
 
