@@ -54,6 +54,7 @@
     <Compile Include="Services\Serializer.cs" />
     <Compile Include="Settings\SitecoreSettingsWrapper.cs" />
     <Compile Include="Sitecore\Pipelines\HttpRequestBegin\DeviceDetection\DefaultDeviceDetector.cs" />
+    <Compile Include="Sitecore\Pipelines\HttpRequestBegin\DeviceDetection\DeviceConditionProcessor.cs" />
     <Compile Include="Sitecore\Pipelines\HttpRequestBegin\DeviceDetection\DeviceDetector.cs" />
     <Compile Include="Sitecore\Pipelines\HttpRequestBegin\DeviceDetection\DeviceIdResolvingProcessor.cs" />
     <Compile Include="Sitecore\Pipelines\HttpRequestBegin\DeviceDetection\LoadDeviceItem.cs" />

@@ -33,6 +33,11 @@
         <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Visitors Device Type/Devices/TV/{87E575D1-DB2F-4011-AC5D-F7945DA95ABB}/invariant/0</x-item>
         <x-item>/master/sitecore/system/Settings/Rules/Definitions/Tags/Device Detection/{36C2B7B6-6B46-4C41-9E78-230DA2C5EC90}/invariant/0</x-item>
         <x-item>/master/sitecore/system/Settings/Rules/Definitions/Tags/Device Detection/Visibility/{CD48100B-0447-443B-AF2D-A135466D4EDC}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Device Detection/{51B85521-142D-4614-8D54-3A1F2F10DF35}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Device Detection/Rules/{8A20CD1E-E5A4-4743-951B-BEA0C742A128}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Device Detection/Tags/{9E56449C-4CCD-44CA-BF9A-CE7B7AD2E7EE}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Device Detection/Tags/Default/{39423C5B-5D8D-4B32-8069-A6DD04837240}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/System/Layout/Device/Detection/Condition/{E58D5C49-AD5D-4F26-9DB4-94CE035FF03A}/invariant/0</x-item>
       </Entries>
       <SkipVersions>False</SkipVersions>
       <Converter>
