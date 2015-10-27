@@ -15,6 +15,14 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services
 
         bool IsTabletDevice();
 
+        bool GetBoolProperty(string propertyName);
+
+        string GetStringProperty(string propertyName);
+
+        int GetIntegerProperty(string propertyName, int defaultValue);
+
+        decimal GetDecimalProperty(string propertyName, decimal defaultValue);
+
         DetectedDevice GetDetectedDevice();
     }
 
@@ -57,6 +65,60 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services
             }
 
             return false;
+        }
+
+        public bool GetBoolProperty(string propertyName)
+        {
+            var propertyValue = GetStringProperty(propertyName);
+
+            if (!string.IsNullOrEmpty(propertyValue))
+            {
+                bool result;
+                bool.TryParse(propertyValue, out result);
+                return result;
+            }
+
+            return false;
+        }
+
+        public string GetStringProperty(string propertyName)
+        {
+            var detectedDevice = GetDetectedDevice();
+
+            if (detectedDevice != null && detectedDevice.HasProperty(propertyName))
+            {
+                return detectedDevice[propertyName];
+            }
+
+            return "";
+        }
+
+        public int GetIntegerProperty(string propertyName, int defaultValue)
+        {
+            var propertyValue = GetStringProperty(propertyName);
+
+            if (!string.IsNullOrEmpty(propertyValue))
+            {
+                int result;
+                int.TryParse(propertyValue, out result);
+                return result;
+            }
+
+            return defaultValue;
+        }
+
+        public decimal GetDecimalProperty(string propertyName, decimal defaultValue)
+        {
+            var propertyValue = GetStringProperty(propertyName);
+
+            if (!string.IsNullOrEmpty(propertyValue))
+            {
+                decimal result;
+                decimal.TryParse(propertyValue, out result);
+                return result;
+            }
+
+            return defaultValue;
         }
 
         public DetectedDevice GetDetectedDevice()

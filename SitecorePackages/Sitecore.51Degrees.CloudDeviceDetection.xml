@@ -19,6 +19,12 @@
     <xitems>
       <Entries>
         <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/{C1AC30E6-1592-4181-87A0-CDDE78150647}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Browser Name/{7AA50B31-D293-40CC-80F6-15080925C400}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Browser Version/{F8B6B7C6-D60E-4A00-BBD1-CB881EB7AF00}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Platform Name/{DAD7145A-C306-448D-8039-7182968D7B84}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Platform Version/{85360553-524D-4A85-B04A-D8F453B35AD0}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Screen Pixels Height/{7CBD42C4-F44B-464C-85ED-4E08C948E2B4}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Screen Pixels Width/{A07A3EA5-D34B-4364-8980-B2055F889382}/invariant/0</x-item>
         <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Tags/{22A76464-A921-4232-A8AB-E192E3E8FB70}/invariant/0</x-item>
         <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Tags/Default/{DC9C682B-7D3E-4BD0-8C8B-D8D554A90512}/invariant/0</x-item>
         <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Visibility/{1BA43D50-0AA0-489F-A584-1504B5B287D8}/invariant/0</x-item>

@@ -1,5 +1,4 @@
-﻿using System.Web.UI;
-using Sitecore.Diagnostics;
+﻿using Sitecore.Diagnostics;
 using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Factories;
 using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services;
 using Sitecore.Rules;
@@ -28,19 +27,19 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Rules.DeviceDetection
                     result = _fiftyOneDegreesService.IsTabletDevice();
                     break;
                 case "Console":
-                    result = GetBoolProperty("IsConsole");
+                    result = _fiftyOneDegreesService.GetBoolProperty("IsConsole");
                     break;
                 case "eReader":
-                    result = GetBoolProperty("IsEReader");
+                    result = _fiftyOneDegreesService.GetBoolProperty("IsEReader");
                     break;
                 case "Media Hub":
-                    result = GetBoolProperty("IsMediaHub");
+                    result = _fiftyOneDegreesService.GetBoolProperty("IsMediaHub");
                     break;
                 case "Small Screen":
-                    result = GetBoolProperty("IsSmallScreen");
+                    result = _fiftyOneDegreesService.GetBoolProperty("IsSmallScreen");
                     break;
                 case "TV":
-                    result = GetBoolProperty("IsTV");
+                    result = _fiftyOneDegreesService.GetBoolProperty("IsTV");
                     break;
                 default:
                     result = false;
@@ -62,20 +61,6 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Rules.DeviceDetection
 
                 return deviceItem.Name;
             }
-        }
-
-        private bool GetBoolProperty(string propertyName)
-        {
-            var detectedDevice = _fiftyOneDegreesService.GetDetectedDevice();
-
-            if (detectedDevice != null)
-            {
-                bool result;
-                bool.TryParse(detectedDevice[propertyName], out result);
-                return result;
-            }
-
-            return false;
         }
     }
 }
