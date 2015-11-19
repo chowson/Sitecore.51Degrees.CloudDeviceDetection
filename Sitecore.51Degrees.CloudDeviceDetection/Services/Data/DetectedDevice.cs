@@ -29,14 +29,14 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services.Data
             get { return GetProperty("DeviceType"); }
         }
 
-        public bool HasProperty(string propertyName)
-        {
-            return _deviceProperties.ContainsKey(propertyName);
-        }
-
         public string this[string propertyName]
         {
             get { return GetProperty(propertyName); }
+        }
+
+        public ICollection<string> DeviceProperties
+        {
+            get { return _deviceProperties.Keys; }
         }
 
         private string GetProperty(string propertyName)

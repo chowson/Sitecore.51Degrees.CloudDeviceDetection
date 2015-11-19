@@ -1,6 +1,6 @@
 ﻿using Sitecore.Diagnostics;
-using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Factories;
 using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services;
+using Sitecore.FiftyOneDegrees.CloudDeviceDetection.System.Wrappers;
 using Sitecore.Rules;
 using Sitecore.Rules.Conditions;
 
@@ -10,36 +10,35 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Rules.DeviceDetection
     {
         public string DeviceType { get; set; }
 
-        private IFiftyOneDegreesService _fiftyOneDegreesService;
-
         protected override bool Execute(T ruleContext)
         {
-            _fiftyOneDegreesService = new FiftyOneDegreesServiceFactory().Create();
+            var httpRequest = new HttpContextWrapper().Request;
+            var browserCapabilitiesService = new BrowserCapabilitiesService(new HttpContextWrapper().Request);
 
             bool result;
 
             switch (DeviceTypeName)
             {
                 case "Mobile":
-                    result = _fiftyOneDegreesService.IsMobileDevice();
+                    result = browserCapabilitiesService.IsMobileDevice;
                     break;
                 case "Tablet":
-                    result = _fiftyOneDegreesService.IsTabletDevice();
+                    result = browserCapabilitiesService.IsTabletDevice;
                     break;
                 case "Console":
-                    result = _fiftyOneDegreesService.GetBoolProperty("IsConsole");
+                    result = browserCapabilitiesService.GetBoolProperty("IsConsole");
                     break;
                 case "eReader":
-                    result = _fiftyOneDegreesService.GetBoolProperty("IsEReader");
+                    result = browserCapabilitiesService.GetBoolProperty("IsEReader");
                     break;
                 case "Media Hub":
-                    result = _fiftyOneDegreesService.GetBoolProperty("IsMediaHub");
+                    result = browserCapabilitiesService.GetBoolProperty("IsMediaHub");
                     break;
                 case "Small Screen":
-                    result = _fiftyOneDegreesService.GetBoolProperty("IsSmallScreen");
+                    result = browserCapabilitiesService.GetBoolProperty("IsSmallScreen");
                     break;
                 case "TV":
-                    result = _fiftyOneDegreesService.GetBoolProperty("IsTV");
+                    result = browserCapabilitiesService.GetBoolProperty("IsTV");
                     break;
                 default:
                     result = false;

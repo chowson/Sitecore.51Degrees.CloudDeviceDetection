@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services.Data;
 using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Settings;
@@ -11,19 +9,7 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services
 {
     public interface IFiftyOneDegreesService
     {
-        bool IsMobileDevice();
-
-        bool IsTabletDevice();
-
-        bool GetBoolProperty(string propertyName);
-
-        string GetStringProperty(string propertyName);
-
-        int GetIntegerProperty(string propertyName, int defaultValue);
-
-        decimal GetDecimalProperty(string propertyName, decimal defaultValue);
-
-        DetectedDevice GetDetectedDevice();
+        void SetBrowserCapabilities();
     }
 
     public class FiftyOneDegreesService : IFiftyOneDegreesService
@@ -43,90 +29,35 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services
             _webRequestWrapper = webRequestWrapper;
         }
 
-        public bool IsMobileDevice()
+        public void SetBrowserCapabilities()
         {
+            if (_httpContextWrapper.Items.Contains("FiftyOneDegreesService.SetBrowserCapabilities"))
+            {
+                return;
+            }
+
             var detectedDevice = GetDetectedDevice();
 
             if (detectedDevice != null)
             {
-                return detectedDevice.IsMobile && detectedDevice.DeviceType.Equals("SmartPhone");
+                var browserCapabilities = _httpContextWrapper.Request.Browser;
+
+                foreach (var deviceProperty in detectedDevice.DeviceProperties)
+                {
+                    browserCapabilities.Capabilities[deviceProperty] = detectedDevice[deviceProperty];
+                }
+
+                browserCapabilities.Capabilities["isMobileDevice"] = IsMobileDevice(detectedDevice);
+                browserCapabilities.Capabilities["isTabletDevice"] = IsTabletDevice(detectedDevice);
             }
 
-            return false;
+            _httpContextWrapper.Items.Add("FiftyOneDegreesService.SetBrowserCapabilities", true);
         }
 
-        public bool IsTabletDevice()
-        {
-            var detectedDevice = GetDetectedDevice();
-
-            if (detectedDevice != null)
-            {
-                return detectedDevice.IsMobile && detectedDevice.DeviceType.Equals("Tablet");
-            }
-
-            return false;
-        }
-
-        public bool GetBoolProperty(string propertyName)
-        {
-            var propertyValue = GetStringProperty(propertyName);
-
-            if (!string.IsNullOrEmpty(propertyValue))
-            {
-                bool result;
-                bool.TryParse(propertyValue, out result);
-                return result;
-            }
-
-            return false;
-        }
-
-        public string GetStringProperty(string propertyName)
-        {
-            var detectedDevice = GetDetectedDevice();
-
-            if (detectedDevice != null && detectedDevice.HasProperty(propertyName))
-            {
-                return detectedDevice[propertyName];
-            }
-
-            return "";
-        }
-
-        public int GetIntegerProperty(string propertyName, int defaultValue)
-        {
-            var propertyValue = GetStringProperty(propertyName);
-
-            if (!string.IsNullOrEmpty(propertyValue))
-            {
-                int result;
-                int.TryParse(propertyValue, out result);
-                return result;
-            }
-
-            return defaultValue;
-        }
-
-        public decimal GetDecimalProperty(string propertyName, decimal defaultValue)
-        {
-            var propertyValue = GetStringProperty(propertyName);
-
-            if (!string.IsNullOrEmpty(propertyValue))
-            {
-                decimal result;
-                decimal.TryParse(propertyValue, out result);
-                return result;
-            }
-
-            return defaultValue;
-        }
-
-        public DetectedDevice GetDetectedDevice()
+        private DetectedDevice GetDetectedDevice()
         {
             var userAgent = _httpContextWrapper.Request.UserAgent;
-
             var detectedDevice = _httpRuntimeCacheWrapper.Get<DetectedDevice>(CacheKey(userAgent));
-
             if (detectedDevice == null)
             {
                 try
@@ -145,7 +76,7 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services
                 }
             }
 
-            return detectedDevice;  
+            return detectedDevice;
         }
 
         private static DetectedDevice ParseDeviceDetectionResult(dynamic deviceDetectionResult)
@@ -169,6 +100,26 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services
             var apiEndpointUrl = _sitecoreSettingsWrapper.GetSetting("Sitecore.FiftyOneDegrees.CloudDeviceDetection.ApiEndpoint");
 
             return string.Format(apiEndpointUrl, apiLicenceKey, HttpUtility.UrlEncode(userAgent));
+        }
+
+        private string IsMobileDevice(DetectedDevice detectedDevice)
+        {
+            if (detectedDevice != null)
+            {
+                return (detectedDevice.IsMobile && detectedDevice.DeviceType.Equals("SmartPhone")).ToString();
+            }
+
+            return false.ToString();
+        }
+
+        private bool IsTabletDevice(DetectedDevice detectedDevice)
+        {
+            if (detectedDevice != null)
+            {
+                return detectedDevice.IsMobile && detectedDevice.DeviceType.Equals("Tablet");
+            }
+
+            return false;
         }
     }
 }

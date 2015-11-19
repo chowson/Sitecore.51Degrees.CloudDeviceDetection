@@ -1,6 +1,8 @@
-﻿using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services;
+﻿using System.Web;
+using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services;
 using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Settings;
 using Sitecore.FiftyOneDegrees.CloudDeviceDetection.System.Wrappers;
+using HttpContextWrapper = Sitecore.FiftyOneDegrees.CloudDeviceDetection.System.Wrappers.HttpContextWrapper;
 
 namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Factories
 {
@@ -13,8 +15,14 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Factories
     {
         public IFiftyOneDegreesService Create()
         {
+            return Create(new HttpContextWrapper());
+        }
+
+        public IFiftyOneDegreesService Create(IHttpContextWrapper httpContextWrapper)
+        {
             return new FiftyOneDegreesService(new SitecoreSettingsWrapper(),
-                new HttpContextWrapper(), new HttpRuntimeCacheWrapper(new HttpContextWrapper(), new HttpRuntimeWrapper()), new WebRequestWrapper(new JsonSerializer()));
+                httpContextWrapper, new HttpRuntimeCacheWrapper(httpContextWrapper, new HttpRuntimeWrapper()),
+                new WebRequestWrapper(new JsonSerializer()));
         }
     }
 }

@@ -1,5 +1,5 @@
-﻿using System.Web;
-using SystemDotNet = System;
+﻿using System.Collections;
+using System.Web;
 
 namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.System.Wrappers
 {
@@ -7,19 +7,38 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.System.Wrappers
     {
         IHttpRequestWrapper Request { get; }
 
-        HttpContextBase GetHttpContext();
+        HttpContext GetHttpContext();
+
+        IDictionary Items { get; }
     }
 
     public class HttpContextWrapper : IHttpContextWrapper
     {
+        private readonly HttpContext _httpContext;
+
+        public HttpContextWrapper()
+        {
+            _httpContext = HttpContext.Current;
+        }
+
+        public HttpContextWrapper(HttpContext httpContext)
+        {
+            _httpContext = httpContext;
+        }
+
         public IHttpRequestWrapper Request
         {
             get { return new HttpRequestWrapper(GetHttpContext().Request); }
         }
 
-        public HttpContextBase GetHttpContext()
+        public HttpContext GetHttpContext()
         {
-            return new SystemDotNet.Web.HttpContextWrapper(HttpContext.Current);
+            return _httpContext;
+        }
+
+        public IDictionary Items
+        {
+            get { return _httpContext.Items; }
         }
     }
 }

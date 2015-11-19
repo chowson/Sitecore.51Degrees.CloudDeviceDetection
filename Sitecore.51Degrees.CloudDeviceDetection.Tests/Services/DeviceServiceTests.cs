@@ -36,19 +36,19 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Tests.Services
 
     internal class DeviceIdResolverServiceTester
     {
-        private readonly Mock<IFiftyOneDegreesService> _fiftyOneDegreesService;
+        private readonly Mock<IBrowserCapabilitiesService> _browserCapabilitiesService;
         private readonly DeviceService _deviceIdResolverService;
 
         private DeviceIdResolverServiceTester()
         {
-            _fiftyOneDegreesService = new Mock<IFiftyOneDegreesService>();
+            _browserCapabilitiesService = new Mock<IBrowserCapabilitiesService>();
 
             var deviceIds = new Mock<IDeviceIds>();
             deviceIds.Setup(x => x.Default).Returns("Default");
             deviceIds.Setup(x => x.Mobile).Returns("Mobile");
             deviceIds.Setup(x => x.Tablet).Returns("Tablet");
 
-            _deviceIdResolverService = new DeviceService(_fiftyOneDegreesService.Object, deviceIds.Object);
+            _deviceIdResolverService = new DeviceService(_browserCapabilitiesService.Object, deviceIds.Object);
         }
 
         public static DeviceIdResolverServiceTester Where()
@@ -65,7 +65,7 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Tests.Services
         internal DeviceIdResolverServiceTester CurrentDeviceIsTablet()
         {
             SetUpServiceToReturnMobile(false);
-            _fiftyOneDegreesService.Setup(x => x.IsTabletDevice()).Returns(true);
+            _browserCapabilitiesService.Setup(x => x.IsTabletDevice).Returns(true);
             return this;
         }
 
@@ -77,7 +77,7 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Tests.Services
 
         private void SetUpServiceToReturnMobile(bool isMobileDevice)
         {
-            _fiftyOneDegreesService.Setup(x => x.IsMobileDevice()).Returns(isMobileDevice);
+            _browserCapabilitiesService.Setup(x => x.IsMobileDevice).Returns(isMobileDevice);
         }
 
         internal void ThenResolverDeviceId(string expectedDeviceId)

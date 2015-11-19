@@ -9,23 +9,23 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services
 
     public class DeviceService : IDeviceService
     {
-        private readonly IFiftyOneDegreesService _fiftyOneDegreesService;
+        private readonly IBrowserCapabilitiesService _browserCapabilitiesService;
         private readonly IDeviceIds _deviceIds;
 
-        public DeviceService(IFiftyOneDegreesService fiftyOneDegreesService, IDeviceIds deviceIds)
+        public DeviceService(IBrowserCapabilitiesService browserCapabilitiesService, IDeviceIds deviceIds)
         {
-            _fiftyOneDegreesService = fiftyOneDegreesService;
+            _browserCapabilitiesService = browserCapabilitiesService;
             _deviceIds = deviceIds;
         }
 
         public string GetDeviceId()
         {
-            if (_fiftyOneDegreesService.IsMobileDevice())
+            if (_browserCapabilitiesService.IsMobileDevice)
             {
                 return _deviceIds.Mobile;
             }
             
-            if (_fiftyOneDegreesService.IsTabletDevice())
+            if (_browserCapabilitiesService.IsTabletDevice)
             {
                 return _deviceIds.Tablet;
             }

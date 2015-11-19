@@ -1,5 +1,6 @@
 ﻿using Sitecore.Diagnostics;
-using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Factories;
+using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services;
+using Sitecore.FiftyOneDegrees.CloudDeviceDetection.System.Wrappers;
 using Sitecore.Rules;
 using Sitecore.Rules.Conditions;
 
@@ -11,12 +12,12 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Rules.DeviceDetection
         {
             Assert.ArgumentNotNull(ruleContext, "ruleContext");
 
-            var fiftyOneDegreesService = new FiftyOneDegreesServiceFactory().Create();
+            var browserCapabilitiesService = new BrowserCapabilitiesService(new HttpContextWrapper().Request);
 
-            var screenPixelsWidthString = fiftyOneDegreesService.GetStringProperty("ScreenPixelsWidth");
-            int screenPixelsWidth = screenPixelsWidthString.Equals("Unknown")
+            var screenPixelsWidthString = browserCapabilitiesService.GetStringProperty("ScreenPixelsWidth");
+            var screenPixelsWidth = screenPixelsWidthString.Equals("Unknown")
                 ? int.MaxValue
-                : fiftyOneDegreesService.GetIntegerProperty("ScreenPixelsWidth", int.MaxValue);
+                : browserCapabilitiesService.GetIntegerProperty("ScreenPixelsWidth", int.MaxValue);
 
             return Compare(screenPixelsWidth);
         }

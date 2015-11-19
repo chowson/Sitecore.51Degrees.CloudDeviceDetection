@@ -55,6 +55,7 @@
     <Compile Include="Rules\DeviceDetection\ScreenPixelsHeightCondition.cs" />
     <Compile Include="Rules\DeviceDetection\VisitorsDeviceType.cs" />
     <Compile Include="Rules\DecimalComparisonCondition.cs" />
+    <Compile Include="Services\BrowserCapabilitiesService.cs" />
     <Compile Include="Services\Data\DetectedDevice.cs" />
     <Compile Include="Services\DeviceService.cs" />
     <Compile Include="Services\FiftyOneDegreesService.cs" />
@@ -69,6 +70,8 @@
     <Compile Include="Sitecore\Pipelines\HttpRequestBegin\DeviceDetection\ResolveMobileDevicePipelineArgs.cs" />
     <Compile Include="Sitecore\Pipelines\HttpRequestBegin\DeviceDetection\ResolveMobileDeviceProcessor.cs" />
     <Compile Include="Sitecore\Pipelines\HttpRequestBegin\DeviceDetection\SiteDetector.cs" />
+    <Compile Include="Sitecore\Pipelines\PreprocessRequest\DeviceDetection\SetBrowserCapabilities.cs" />
+    <Compile Include="System\Wrappers\HttpBrowserCapabilitiesWrapper.cs" />
     <Compile Include="System\Wrappers\HttpContextWrapper.cs" />
     <Compile Include="System\Wrappers\HttpRequestWrapper.cs" />
     <Compile Include="System\Wrappers\HttpRuntimeCacheWrapper.cs" />
