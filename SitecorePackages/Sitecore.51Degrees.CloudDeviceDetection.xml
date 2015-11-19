@@ -44,6 +44,7 @@
         <x-item>/master/sitecore/system/Settings/Rules/Device Detection/Tags/{9E56449C-4CCD-44CA-BF9A-CE7B7AD2E7EE}/invariant/0</x-item>
         <x-item>/master/sitecore/system/Settings/Rules/Device Detection/Tags/Default/{39423C5B-5D8D-4B32-8069-A6DD04837240}/invariant/0</x-item>
         <x-item>/master/sitecore/templates/System/Layout/Device/Detection/Condition/{E58D5C49-AD5D-4F26-9DB4-94CE035FF03A}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Conditional Renderings/Tags/Default/{B60C6A64-B367-48F0-86D9-7FA1C3D3B603}/invariant/0</x-item>
       </Entries>
       <SkipVersions>False</SkipVersions>
       <Converter>
