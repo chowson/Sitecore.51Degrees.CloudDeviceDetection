@@ -23,7 +23,7 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Sitecore.Pipelines.HttpR
             {
                 var ruleContext = new RuleContext();
 
-                foreach (var rule in RuleFactory.GetRules<RuleContext>(new[] { device.InnerItem }, "Condition").Rules)
+                foreach (var rule in RuleFactory.GetRules<RuleContext>(new[] { device.InnerItem }, "Rule").Rules)
                 {
                     if (rule.Condition != null)
                     {

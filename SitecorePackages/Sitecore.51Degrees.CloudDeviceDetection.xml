@@ -18,33 +18,33 @@
   <Sources>
     <xitems>
       <Entries>
-        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/{C1AC30E6-1592-4181-87A0-CDDE78150647}/invariant/0</x-item>
-        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Browser Name/{7AA50B31-D293-40CC-80F6-15080925C400}/invariant/0</x-item>
-        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Browser Version/{F8B6B7C6-D60E-4A00-BBD1-CB881EB7AF00}/invariant/0</x-item>
-        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Platform Name/{DAD7145A-C306-448D-8039-7182968D7B84}/invariant/0</x-item>
-        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Platform Version/{85360553-524D-4A85-B04A-D8F453B35AD0}/invariant/0</x-item>
-        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Screen Pixels Height/{7CBD42C4-F44B-464C-85ED-4E08C948E2B4}/invariant/0</x-item>
-        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Screen Pixels Width/{A07A3EA5-D34B-4364-8980-B2055F889382}/invariant/0</x-item>
-        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Tags/{22A76464-A921-4232-A8AB-E192E3E8FB70}/invariant/0</x-item>
-        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Tags/Default/{DC9C682B-7D3E-4BD0-8C8B-D8D554A90512}/invariant/0</x-item>
-        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Visibility/{1BA43D50-0AA0-489F-A584-1504B5B287D8}/invariant/0</x-item>
-        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Visitors Device Type/{04213114-92EA-4A1F-BE21-5D7E4614B5F0}/invariant/0</x-item>
-        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Visitors Device Type/Devices/{C15C8E65-DA66-477D-965F-9394DB7B16AC}/invariant/0</x-item>
-        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Visitors Device Type/Devices/Console/{C100DC4E-5279-4632-BCA9-B5639079E9B8}/invariant/0</x-item>
-        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Visitors Device Type/Devices/eReader/{92DA24AD-D451-4BC3-9EC5-EFA7E5824541}/invariant/0</x-item>
-        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Visitors Device Type/Devices/Media Hub/{573562E1-F54B-4579-B477-A78EA6795E5B}/invariant/0</x-item>
-        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Visitors Device Type/Devices/Mobile/{BA42D9E6-55B9-411B-873B-3EFCEB02E33E}/invariant/0</x-item>
-        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Visitors Device Type/Devices/Small Screen/{B99C2240-A68D-46C8-8540-885C6FCFA8D1}/invariant/0</x-item>
-        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Visitors Device Type/Devices/Tablet/{C7F4CF1F-2ADF-479A-97F3-D7D8640F2661}/invariant/0</x-item>
-        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection/Visitors Device Type/Devices/TV/{87E575D1-DB2F-4011-AC5D-F7945DA95ABB}/invariant/0</x-item>
-        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Tags/Device Detection/{36C2B7B6-6B46-4C41-9E78-230DA2C5EC90}/invariant/0</x-item>
-        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Tags/Device Detection/Visibility/{CD48100B-0447-443B-AF2D-A135466D4EDC}/invariant/0</x-item>
-        <x-item>/master/sitecore/system/Settings/Rules/Device Detection/{51B85521-142D-4614-8D54-3A1F2F10DF35}/invariant/0</x-item>
-        <x-item>/master/sitecore/system/Settings/Rules/Device Detection/Rules/{8A20CD1E-E5A4-4743-951B-BEA0C742A128}/invariant/0</x-item>
-        <x-item>/master/sitecore/system/Settings/Rules/Device Detection/Tags/{9E56449C-4CCD-44CA-BF9A-CE7B7AD2E7EE}/invariant/0</x-item>
-        <x-item>/master/sitecore/system/Settings/Rules/Device Detection/Tags/Default/{39423C5B-5D8D-4B32-8069-A6DD04837240}/invariant/0</x-item>
-        <x-item>/master/sitecore/templates/System/Layout/Device/Detection/Condition/{E58D5C49-AD5D-4F26-9DB4-94CE035FF03A}/invariant/0</x-item>
-        <x-item>/master/sitecore/system/Settings/Rules/Conditional Renderings/Tags/Default/{B60C6A64-B367-48F0-86D9-7FA1C3D3B603}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection Module/{C1AC30E6-1592-4181-87A0-CDDE78150647}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection Module/Browser Name/{7AA50B31-D293-40CC-80F6-15080925C400}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection Module/Browser Version/{F8B6B7C6-D60E-4A00-BBD1-CB881EB7AF00}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection Module/Platform Name/{DAD7145A-C306-448D-8039-7182968D7B84}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection Module/Platform Version/{85360553-524D-4A85-B04A-D8F453B35AD0}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection Module/Screen Pixels Height/{7CBD42C4-F44B-464C-85ED-4E08C948E2B4}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection Module/Screen Pixels Width/{A07A3EA5-D34B-4364-8980-B2055F889382}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection Module/Tags/{22A76464-A921-4232-A8AB-E192E3E8FB70}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection Module/Tags/Default/{DC9C682B-7D3E-4BD0-8C8B-D8D554A90512}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection Module/Visibility/{1BA43D50-0AA0-489F-A584-1504B5B287D8}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection Module/Visitors Device Type/{04213114-92EA-4A1F-BE21-5D7E4614B5F0}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection Module/Visitors Device Type/Devices/{C15C8E65-DA66-477D-965F-9394DB7B16AC}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection Module/Visitors Device Type/Devices/Console/{C100DC4E-5279-4632-BCA9-B5639079E9B8}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection Module/Visitors Device Type/Devices/eReader/{92DA24AD-D451-4BC3-9EC5-EFA7E5824541}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection Module/Visitors Device Type/Devices/Media Hub/{573562E1-F54B-4579-B477-A78EA6795E5B}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection Module/Visitors Device Type/Devices/Mobile/{BA42D9E6-55B9-411B-873B-3EFCEB02E33E}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection Module/Visitors Device Type/Devices/Small Screen/{B99C2240-A68D-46C8-8540-885C6FCFA8D1}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection Module/Visitors Device Type/Devices/Tablet/{C7F4CF1F-2ADF-479A-97F3-D7D8640F2661}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Elements/Device Detection Module/Visitors Device Type/Devices/TV/{87E575D1-DB2F-4011-AC5D-F7945DA95ABB}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Tags/Device Detection Module/{36C2B7B6-6B46-4C41-9E78-230DA2C5EC90}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Definitions/Tags/Device Detection Module/Visibility/{CD48100B-0447-443B-AF2D-A135466D4EDC}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/System/Layout/Device/Detection/Rule/{BF584A6D-BF22-49E2-AB10-63F5AE88C7BD}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Device Detection/{74DC5772-070C-4D02-8A98-17DC537A6E06}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Device Detection/Rules/{C77B45A4-E3E8-445D-970B-FB4A386CD873}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Device Detection/Tags/{55E9445F-DDF1-4267-BFC4-EBADFAC522FB}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Device Detection/Tags/Device Detection Module/{F7F1AE82-B824-4A61-ABD7-C2750FBFFFBF}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Settings/Rules/Conditional Renderings/Tags/Device Detection Module/{3FE78102-8D7D-46D6-9097-14109D608E06}/invariant/0</x-item>
       </Entries>
       <SkipVersions>False</SkipVersions>
       <Converter>
@@ -73,7 +73,16 @@
       <Converter>
         <FileToEntryConverter>
           <Root>/</Root>
-          <Transforms />
+          <Transforms>
+            <InstallerConfigurationTransform>
+              <Options>
+                <BehaviourOptions>
+                  <ItemMode>Undefined</ItemMode>
+                  <ItemMergeMode>Undefined</ItemMergeMode>
+                </BehaviourOptions>
+              </Options>
+            </InstallerConfigurationTransform>
+          </Transforms>
         </FileToEntryConverter>
       </Converter>
       <Include />
