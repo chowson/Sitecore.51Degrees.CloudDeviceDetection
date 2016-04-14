@@ -30,8 +30,10 @@ To use this module, you will need to sign up for an account with 51 degrees, all
 
 1. Install the Sitecore package _/SitecorePackages/Sitecore.51Degrees.CloudDeviceDetection.zip_
   * If you are using Sitecore 8, click Skip on any conflicts (extra items are needed for compatibility with older Sitecore versions)
-2. Open _/App_Config/Include/Sitecore.51Degrees.CloudDeviceDetection.config_ and enter your license key in the setting _Sitecore.FiftyOneDegrees.CloudDeviceDetection.ApiLicenceKey_
-  * If you are using Sitecore 8, remove the <httpRequestBegin> pipeline section from this file as well as it is only needed for older versions of Sitecore
+2. Open _/App_Config/Include/Z.Sitecore.51Degrees.CloudDeviceDetection/Sitecore.51Degrees.CloudDeviceDetection.config_ and enter your license key in the setting _Sitecore.FiftyOneDegrees.CloudDeviceDetection.ApiLicenceKey_
+3. If you are using Sitecore 8 and xDB, rename _/App_Config/Include/Z.Sitecore.51Degrees.CloudDeviceDetection/Sitecore.51Degrees.CloudDeviceDetection.xDB.config.bak to remove the .bak extension
+
+To check that the plugin is working, navigate to _/Sitecore/Admin/DeviceDetectionStatus.aspx where you should see details about your device if the module is working.
 
 ##Customisations
 

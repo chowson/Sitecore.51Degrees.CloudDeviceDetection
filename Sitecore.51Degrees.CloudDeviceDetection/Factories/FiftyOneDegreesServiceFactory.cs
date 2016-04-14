@@ -1,5 +1,4 @@
-﻿using System.Web;
-using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services;
+﻿using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services;
 using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Settings;
 using Sitecore.FiftyOneDegrees.CloudDeviceDetection.System.Wrappers;
 using HttpContextWrapper = Sitecore.FiftyOneDegrees.CloudDeviceDetection.System.Wrappers.HttpContextWrapper;
