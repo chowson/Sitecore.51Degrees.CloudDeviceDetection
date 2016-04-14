@@ -1,0 +1,19 @@
+﻿---
+ID: "f7f1ae82-b824-4a61-abd7-c2750fbfffbf"
+Parent: "55e9445f-ddf1-4267-bfc4-ebadfac522fb"
+Template: "854ba861-63ea-4a0c-8c7b-541e9a7ec4c1"
+Path: /sitecore/system/Settings/Rules/Device Detection/Tags/Device Detection Module
+DB: master
+SharedFields:
+- ID: "42f77151-098f-496a-94cf-590b7edeeabe"
+  Hint: Tags
+  Type: Multilist
+  Value: "{36C2B7B6-6B46-4C41-9E78-230DA2C5EC90}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20160205T132929

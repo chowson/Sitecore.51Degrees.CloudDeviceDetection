@@ -10,6 +10,8 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services
     public interface IFiftyOneDegreesService
     {
         void SetBrowserCapabilities();
+
+        DetectedDevice GetDetectedDevice(string userAgent = null);
     }
 
     public class FiftyOneDegreesService : IFiftyOneDegreesService
@@ -54,9 +56,9 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services
             _httpContextWrapper.Items.Add("FiftyOneDegreesService.SetBrowserCapabilities", true);
         }
 
-        private DetectedDevice GetDetectedDevice()
+        public DetectedDevice GetDetectedDevice(string userAgent = null)
         {
-            var userAgent = _httpContextWrapper.Request.UserAgent;
+            userAgent = userAgent ?? _httpContextWrapper.Request.UserAgent;
             var detectedDevice = _httpRuntimeCacheWrapper.Get<DetectedDevice>(CacheKey(userAgent));
             if (detectedDevice == null)
             {
@@ -72,7 +74,8 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services
                 }
                 catch (Exception exception)
                 {
-                    Diagnostics.Log.Error(string.Format("51Degrees lookup error for user agent '{0}'", userAgent), exception);
+                    Diagnostics.Log.Error(string.Format("51Degrees lookup error for user agent '{0}'", userAgent), this);
+                    Diagnostics.Log.Error(exception.Message, exception);
                 }
             }
 

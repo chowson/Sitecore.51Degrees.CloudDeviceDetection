@@ -30,10 +30,38 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Sitecore.Kernel">
+    <Reference Include="Kamsar.WebConsole, Version=1.2.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kamsar.WebConsole.1.2.2.0\lib\net40\Kamsar.WebConsole.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MicroCHAP, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MicroCHAP.1.2.1.0\lib\net45\MicroCHAP.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Rainbow, Version=1.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rainbow.Core.1.3.1\lib\net45\Rainbow.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Rainbow.Storage.Sc, Version=1.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rainbow.Storage.Sc.1.3.1\lib\net45\Rainbow.Storage.Sc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Rainbow.Storage.Yaml, Version=1.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rainbow.Storage.Yaml.1.3.1\lib\net45\Rainbow.Storage.Yaml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Sitecore.CES.DeviceDetection">
+      <HintPath>..\References\Sitecore.CES.DeviceDetection.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Client">
+      <HintPath>..\References\Sitecore.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Kernel, Version=8.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\References\Sitecore.Kernel.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -42,11 +70,16 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Unicorn, Version=3.1.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unicorn.Core.3.1.7\lib\net45\Unicorn.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\DeviceIds.cs" />
     <Compile Include="Factories\FiftyOneDegreesServiceFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\DeviceInformationProvider51Degrees.cs" />
     <Compile Include="Rules\DeviceDetection\PlatformNameCondition.cs" />
     <Compile Include="Rules\DeviceDetection\BrowserNameCondition.cs" />
     <Compile Include="Rules\DeviceDetection\PlatformVersionCondition.cs" />
@@ -58,9 +91,13 @@
     <Compile Include="Services\BrowserCapabilitiesService.cs" />
     <Compile Include="Services\Data\DetectedDevice.cs" />
     <Compile Include="Services\DeviceService.cs" />
+    <Compile Include="Services\FiftyOneDegreesDevicePropertyService.cs" />
     <Compile Include="Services\FiftyOneDegreesService.cs" />
     <Compile Include="Services\Serializer.cs" />
     <Compile Include="Settings\SitecoreSettingsWrapper.cs" />
+    <Content Include="Sitecore\Admin\DeviceDetectionStatus.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Compile Include="Sitecore\Pipelines\HttpRequestBegin\DeviceDetection\DefaultDeviceDetector.cs" />
     <Compile Include="Sitecore\Pipelines\HttpRequestBegin\DeviceDetection\DeviceConditionProcessor.cs" />
     <Compile Include="Sitecore\Pipelines\HttpRequestBegin\DeviceDetection\DeviceDetector.cs" />
@@ -79,9 +116,29 @@
     <Compile Include="System\Wrappers\WebRequestWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App_Config\Include\Sitecore.51Degrees.CloudDeviceDetection.config">
+    <None Include="App_Config\Include\Rainbow.config" />
+    <None Include="App_Config\Include\Unicorn\Unicorn.AutoPublish.config" />
+    <None Include="App_Config\Include\Unicorn\Unicorn.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="App_Config\Include\Unicorn\Unicorn.Configs.CloudDeviceDetection.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="App_Config\Include\Unicorn\Unicorn.Configs.Default.example" />
+    <None Include="App_Config\Include\Unicorn\Unicorn.Configs.Dependency.config.example" />
+    <None Include="App_Config\Include\Unicorn\Unicorn.Configs.NewItemsOnly.example" />
+    <None Include="App_Config\Include\Unicorn\Unicorn.CustomSerializationFolder.config.example" />
+    <None Include="App_Config\Include\Unicorn\Unicorn.DataProvider.config" />
+    <None Include="App_Config\Include\Unicorn\Unicorn.Deployed.config.disabled" />
+    <None Include="App_Config\Include\Unicorn\Unicorn.Remote.config.disabled" />
+    <None Include="App_Config\Include\Unicorn\Unicorn.UI.config" />
+    <None Include="App_Config\Include\Z.Sitecore.51Degrees.CloudDeviceDetection\Sitecore.51Degrees.CloudDeviceDetection.xDB.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="App_Config\Include\Z.Sitecore.51Degrees.CloudDeviceDetection\Sitecore.51Degrees.CloudDeviceDetection.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -51,7 +51,7 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services.Data
                 }
             }
 
-            return "";
+            return null;
         }
     }
 }

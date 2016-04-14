@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using Moq;
 using NUnit.Framework;
 using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services;
@@ -21,21 +22,11 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Tests.Services
         }
 
         [Test]
-        public void ApiCallIsNotMadeWhenCacheIsWarm()
+        public void SetBrowserCapabilitiesMarkedAsCalledPerRequest()
         {
             FiftyOneDegreesServiceTester.Where()
-                .CacheIsWarm()
                 .CallSetBrowserCapabilities()
-                .VerifyApiWasNotCalled();
-        }
-
-        [Test]
-        public void DetectedDeviceIsCachedWhenRequested()
-        {
-            FiftyOneDegreesServiceTester.Where()
-                .SetupApiReponse()
-                .CallSetBrowserCapabilities()
-                .VerifyApiResultWasCached();
+                .VerifyMethodMarkedAsCalled();
         }
 
         [Test]
@@ -47,6 +38,24 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Tests.Services
                 .VerifyCapabilitiesAdded();
         }
 
+        [Test]
+        public void ApiCallIsNotMadeWhenCacheIsWarm()
+        {
+            FiftyOneDegreesServiceTester.Where()
+                .CacheIsWarm()
+                .CallGetDetectedDevice()
+                .VerifyApiWasNotCalled();
+        }
+
+        [Test]
+        public void DetectedDeviceIsCachedWhenRequested()
+        {
+            FiftyOneDegreesServiceTester.Where()
+                .SetupApiReponse()
+                .CallGetDetectedDevice()
+                .VerifyApiResultWasCached();
+        }
+
         internal class FiftyOneDegreesServiceTester
         {
             private object _apiResult = new object();
@@ -55,6 +64,7 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Tests.Services
             private readonly Mock<IHttpRuntimeCacheWrapper> _httpRuntimeCacheWrapper;
             private readonly Mock<IHttpContextWrapper> _httpContextWrapper;
             private readonly Mock<IHttpBrowserCapabilitiesWrapper> _httpBrowser;
+            private readonly Mock<IDictionary> _httpContextItems;
             private readonly FiftyOneDegreesService _fiftyOneDegreesService;
             private const string FiftyOneDegreesEndpoint = "http://endpoint/{0}/?useragent={1}";
             private const string LicenceKey = "LicenceKey";
@@ -75,9 +85,10 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Tests.Services
                 httpRequestWrapper.Setup(x => x.UserAgent).Returns(UserAgent);
                 httpRequestWrapper.Setup(x => x.Browser).Returns(_httpBrowser.Object);
 
+                _httpContextItems = new Mock<IDictionary>();
                 _httpContextWrapper = new Mock<IHttpContextWrapper>();
                 _httpContextWrapper.Setup(x => x.Request).Returns(httpRequestWrapper.Object);
-                _httpContextWrapper.Setup(x => x.Items).Returns(new Dictionary<string, object>());
+                _httpContextWrapper.Setup(x => x.Items).Returns(_httpContextItems.Object);
                 _webRequestWrapper = new Mock<IWebRequestWrapper>();
 
                 _fiftyOneDegreesService = new FiftyOneDegreesService(sitecoreSettingsWrapper.Object, _httpContextWrapper.Object, _httpRuntimeCacheWrapper.Object, _webRequestWrapper.Object);
@@ -94,11 +105,17 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Tests.Services
                 return this;
             }
 
+            public FiftyOneDegreesServiceTester CallGetDetectedDevice(string userAgent = null)
+            {
+                _fiftyOneDegreesService.GetDetectedDevice(userAgent);
+                return this;
+            }
+
             #region Setup Methods
 
             public FiftyOneDegreesServiceTester MarkSetBrowserCapabilitiesAsCalled()
             {
-                _httpContextWrapper.Object.Items.Add("FiftyOneDegreesService.SetBrowserCapabilities", "true");
+                _httpContextItems.Setup(x => x.Contains("FiftyOneDegreesService.SetBrowserCapabilities")).Returns(true);
                 return this;
             }
 
@@ -132,7 +149,12 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Tests.Services
 
             public void VerifyMethodIsAborted()
             {
-                _httpContextWrapper.Verify(x => x.Items.Add("FiftyOneDegreesService.SetBrowserCapabilities", true), Times.Never);
+                _httpContextItems.Verify(x => x.Add("FiftyOneDegreesService.SetBrowserCapabilities", true), Times.Never);
+            }
+
+            public void VerifyMethodMarkedAsCalled()
+            {
+                _httpContextItems.Verify(x => x.Add("FiftyOneDegreesService.SetBrowserCapabilities", true), Times.Once);
             }
 
             public void VerifyApiWasNotCalled()
