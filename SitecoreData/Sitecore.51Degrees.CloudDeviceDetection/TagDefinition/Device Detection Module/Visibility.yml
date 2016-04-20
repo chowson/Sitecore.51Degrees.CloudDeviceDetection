@@ -1,0 +1,14 @@
+﻿---
+ID: "cd48100b-0447-443b-af2d-a135466d4edc"
+Parent: "36c2b7b6-6b46-4c41-9e78-230da2c5ec90"
+Template: "aa91a868-02f2-41d3-8b78-1cad91b4dcae"
+Path: /sitecore/system/Settings/Rules/Definitions/Tags/Device Detection Module/Visibility
+DB: master
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20150625T085154

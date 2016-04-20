@@ -67,8 +67,10 @@
     </xitems>
     <xfiles>
       <Entries>
-        <x-item>/App_Config/Include/Sitecore.51Degrees.CloudDeviceDetection.config</x-item>
         <x-item>/bin/Sitecore.51Degrees.CloudDeviceDetection.dll</x-item>
+        <x-item>/App_Config/Include/Z.Sitecore.51Degrees.CloudDeviceDetection/Sitecore.51Degrees.CloudDeviceDetection.config</x-item>
+        <x-item>/App_Config/Include/Z.Sitecore.51Degrees.CloudDeviceDetection/Sitecore.51Degrees.CloudDeviceDetection.xDB.config.bak</x-item>
+        <x-item>/sitecore/admin/DeviceDetectionStatus.aspx</x-item>
       </Entries>
       <Converter>
         <FileToEntryConverter>
