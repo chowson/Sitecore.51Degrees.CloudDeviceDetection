@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" Debug="true" Inherits="Sitecore.sitecore.admin.AdminPage" %>
 <%@ Import Namespace="System.IO" %>
+<%@ Import Namespace="System.Reflection" %>
 <%@ Import Namespace="Sitecore.FiftyOneDegrees.CloudDeviceDetection.Factories" %>
 <%@ Import Namespace="scapi=Sitecore"  %>
 
@@ -34,20 +35,23 @@
             DeviceDetectionManager = new DeviceDetectionManagerStatus();
 
             var deviceDetectionAssemblyExists = SitecoreCesDeviceDetectionExists();
+
             DeviceDetectionManagerDetailsPanel.Visible = deviceDetectionAssemblyExists;
-#if deviceDetectionAssemblyExists
 
-            var deviceDetectionAssembly = System.Reflection.Assembly.Load("Sitecore.CES.DeviceDetection");
-            DeviceDetectionManager.Exists = deviceDetectionAssembly != null && deviceDetectionAssembly.GetType("Sitecore.CES.DeviceDetection.DeviceDetectionManager") != null;
-
-            if(DeviceDetectionManager.Exists)
+            if (deviceDetectionAssemblyExists)
             {
-                DeviceDetectionManager.Enabled = scapi.CES.DeviceDetection.DeviceDetectionManager.IsEnabled;
-                DeviceDetectionManager.Cache = scapi.Caching.CacheManager.GetAllCaches().First(x => x.Name.Equals("DeviceDetection"));
-                CacheEntryRepeater.DataSource = DeviceDetectionManager.Cache.GetCacheKeys();
-                CacheEntryRepeater.DataBind();
+                var deviceDetectionAssembly = System.Reflection.Assembly.Load("Sitecore.CES.DeviceDetection");
+                DeviceDetectionManager.Exists = deviceDetectionAssembly != null && deviceDetectionAssembly.GetType("Sitecore.CES.DeviceDetection.DeviceDetectionManager") != null;
+
+                if (DeviceDetectionManager.Exists)
+                {
+                    //DeviceDetectionManager.Enabled = scapi.CES.DeviceDetection.DeviceDetectionManager.IsEnabled;
+                    DeviceDetectionManager.Enabled = deviceDetectionAssembly.GetType("Sitecore.CES.DeviceDetection.DeviceDetectionManager").GetProperty("IsEnabled").GetValue(null, null).ToString().Equals("True");
+                    DeviceDetectionManager.Cache = scapi.Caching.CacheManager.GetAllCaches().First(x => x.Name.Equals("DeviceDetection"));
+                    CacheEntryRepeater.DataSource = DeviceDetectionManager.Cache.GetCacheKeys();
+                    CacheEntryRepeater.DataBind();
+                }
             }
-#endif
         }
     }
 

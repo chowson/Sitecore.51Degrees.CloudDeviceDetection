@@ -4,7 +4,6 @@ Parent: "74dc5772-070c-4d02-8a98-17dc537a6e06"
 Template: "96c8e5dd-63c3-496b-a97c-a3e37e1dacba"
 Path: /sitecore/system/Settings/Rules/Device Detection/Tags
 DB: master
-BranchID: "bdc41fdd-a3ac-4b69-a0ba-471c425cb083"
 Languages:
 - Language: da
   Fields:
@@ -41,9 +40,6 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20150415T121536Z
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: sitecore\admin
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
