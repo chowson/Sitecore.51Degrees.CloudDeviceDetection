@@ -21,11 +21,13 @@ It provides 4 things:
   * when a visitor is on a specific platform version
   * when a visitor's screen width pixels matches a condition
   * when a visitor's screen height pixels matches a condition
-4. A 51Degrees implementation of _DeviceInformationProviderBase_ to enable built in Device Detection within Sitecore 8 and Device Reporting within Experience Analytics of xDB
+4. A 51Degrees implementation of _DeviceInformationProviderBase_ to enable built in Device Detection functionality within Sitecore 8 and Device Reporting within Experience Analytics of xDB
   
 ##What prerequisites do you need?
 
-To use this module, you will need to sign up for an account with 51 degrees, all rules provided are available on their free tier. For full Device Detetion functionality in Sitecore 8, a _Premium Cloud_ subscription is required. If using the free subscription, the things that won't be reported are:
+To use this module, you will need to sign up for an account with 51 degrees, all rules provided are available on their free tier.
+
+For full Device Detection functionality in Sitecore 8, a _Premium Cloud_ subscription is required. If using the free subscription, the things that won't be reported are:
   * Platform Vendor
   * Hardware model
   * HasTouchScreen
@@ -52,4 +54,19 @@ To extend the module further, you can add additional querystring parameters to t
 
 ```
 HttpContext.Current.Request.Browser["PROPERTYNAME"]
+```
+
+Or
+
+```
+using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services;
+using Sitecore.FiftyOneDegrees.CloudDeviceDetection.System.Wrappers;
+
+...
+
+IBrowserCapabilitiesService browserCapabilitiesService = new BrowserCapabilitiesService(new HttpContextWrapper().Request);
+browserCapabilitiesService.GetStringProperty(propertyName);
+browserCapabilitiesService.GetBoolProperty(propertyName);
+browserCapabilitiesService.GetIntegerProperty(propertyName);
+browserCapabilitiesService.GetDecimalProperty(propertyName);
 ```
