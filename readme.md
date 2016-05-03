@@ -2,11 +2,11 @@
 
 This project provides device detection for Sitecore using the cloud web service provided by 51 Degrees (https://51degrees.com/products/device-detection/cloud).
 
-It provides 3 things:
+It provides 4 things:
 
 1. A _preprocessRequest_ pipeline step to populate the _Request.Browser_ with properties from 51degrees
-1. An HttpRequestBegin pipeline step to run a condition set on the Sitecore Device item to determine context device. (not required for Sitecore 8 projects)
-2. A set of rules that can be used for Conditional Renderings:
+2. An HttpRequestBegin pipeline step to run a condition set on the Sitecore Device item to determine context device. (not required for Sitecore 8 projects)
+3. A set of rules that can be used for Conditional Renderings:
   * when the visitor's device is a:
     * Mobile
     * Tablet
@@ -21,10 +21,15 @@ It provides 3 things:
   * when a visitor is on a specific platform version
   * when a visitor's screen width pixels matches a condition
   * when a visitor's screen height pixels matches a condition
-	
+4. A 51Degrees implementation of _DeviceInformationProviderBase_ to enable built in Device Detection within Sitecore 8 and Device Reporting within Experience Analytics of xDB
+  
 ##What prerequisites do you need?
 
-To use this module, you will need to sign up for an account with 51 degrees, all rules provided are available on their free tier.
+To use this module, you will need to sign up for an account with 51 degrees, all rules provided are available on their free tier. For full Device Detetion functionality in Sitecore 8, a _Premium Cloud_ subscription is required. If using the free subscription, the things that won't be reported are:
+  * Platform Vendor
+  * Hardware model
+  * HasTouchScreen
+  * Javascript
 
 ##Installation
 
@@ -33,6 +38,7 @@ To use this module, you will need to sign up for an account with 51 degrees, all
 2. Do an Incremental Site Publish
 3. Open _/App_Config/Include/Z.Sitecore.51Degrees.CloudDeviceDetection/Sitecore.51Degrees.CloudDeviceDetection.config_ and enter your license key in the setting _Sitecore.FiftyOneDegrees.CloudDeviceDetection.ApiLicenceKey_
 4. If you are using Sitecore 8 and xDB, rename _/App_Config/Include/Z.Sitecore.51Degrees.CloudDeviceDetection/Sitecore.51Degrees.CloudDeviceDetection.xDB.config.bak to remove the .bak extension
+  * If also using the free tier, remove the _Sitecore.FiftyOneDegrees.CloudDeviceDetection.ApiEndpoint_ setting from this file to revert back to the basic settings
 
 To check that the plugin is working, navigate to _/Sitecore/Admin/DeviceDetectionStatus.aspx where you should see details about your device if the module is working.
 
