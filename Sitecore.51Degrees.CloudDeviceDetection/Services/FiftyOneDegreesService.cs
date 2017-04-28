@@ -46,11 +46,34 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services
 
                 foreach (var deviceProperty in detectedDevice.DeviceProperties)
                 {
-                    browserCapabilities.Capabilities[deviceProperty] = detectedDevice[deviceProperty];
+                    if((deviceProperty.ToLower() == "screenpixelswidth" || deviceProperty.ToLower() == "screenpixelsheight") && detectedDevice[deviceProperty].ToString().ToLower() == "unknown")
+                    {
+                        browserCapabilities.Capabilities[deviceProperty] = Int32.MaxValue.ToString();
+                    }
+                    else
+                    {
+                        browserCapabilities.Capabilities[deviceProperty] = detectedDevice[deviceProperty];
+                    }
+                    
                 }
 
                 browserCapabilities.Capabilities["isMobileDevice"] = IsMobileDevice(detectedDevice);
                 browserCapabilities.Capabilities["isTabletDevice"] = IsTabletDevice(detectedDevice);
+
+                string _characterWidth = "CharacterWidth";
+                string _characterHeight = "CharacterHeight";
+
+
+                if (!browserCapabilities.Capabilities.Contains(_characterWidth))
+                {
+                    browserCapabilities.Capabilities.Add(_characterWidth, "10");
+                }
+
+                if (!browserCapabilities.Capabilities.Contains(_characterHeight))
+                {
+                    browserCapabilities.Capabilities.Add(_characterHeight, "16");
+                }
+
             }
 
             _httpContextWrapper.Items.Add("FiftyOneDegreesService.SetBrowserCapabilities", true);
