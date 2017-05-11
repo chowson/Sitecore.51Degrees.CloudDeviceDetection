@@ -89,6 +89,7 @@
     <Compile Include="Rules\DeviceDetection\VisitorsDeviceType.cs" />
     <Compile Include="Rules\DecimalComparisonCondition.cs" />
     <Compile Include="Services\BrowserCapabilitiesService.cs" />
+    <Compile Include="Services\BrowserCapabilitiesTypeService.cs" />
     <Compile Include="Services\Data\DetectedDevice.cs" />
     <Compile Include="Services\DeviceService.cs" />
     <Compile Include="Services\FiftyOneDegreesDevicePropertyService.cs" />

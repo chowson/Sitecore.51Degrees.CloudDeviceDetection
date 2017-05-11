@@ -60,6 +60,7 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Tests.Services
         {
             private object _apiResult = new object();
             private const string UserAgent = "UserAgent";
+            private readonly Mock<IBrowserCapabilitiesTypeService> _browserCapabilitiesTypeService;
             private readonly Mock<IWebRequestWrapper> _webRequestWrapper;
             private readonly Mock<IHttpRuntimeCacheWrapper> _httpRuntimeCacheWrapper;
             private readonly Mock<IHttpContextWrapper> _httpContextWrapper;
@@ -90,8 +91,11 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Tests.Services
                 _httpContextWrapper.Setup(x => x.Request).Returns(httpRequestWrapper.Object);
                 _httpContextWrapper.Setup(x => x.Items).Returns(_httpContextItems.Object);
                 _webRequestWrapper = new Mock<IWebRequestWrapper>();
+				_browserCapabilitiesTypeService = new Mock<IBrowserCapabilitiesTypeService>();
 
-                _fiftyOneDegreesService = new FiftyOneDegreesService(sitecoreSettingsWrapper.Object, _httpContextWrapper.Object, _httpRuntimeCacheWrapper.Object, _webRequestWrapper.Object);
+				_browserCapabilitiesTypeService.Setup(x => x.CheckValueType(It.IsAny<string>(), It.IsAny<string>())).Returns(true);
+
+				_fiftyOneDegreesService = new FiftyOneDegreesService(sitecoreSettingsWrapper.Object, _httpContextWrapper.Object, _httpRuntimeCacheWrapper.Object, _webRequestWrapper.Object, _browserCapabilitiesTypeService.Object);
             }
 
             public static FiftyOneDegreesServiceTester Where()

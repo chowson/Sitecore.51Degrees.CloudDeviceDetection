@@ -47,7 +47,7 @@
                 {
                     //DeviceDetectionManager.Enabled = scapi.CES.DeviceDetection.DeviceDetectionManager.IsEnabled;
                     DeviceDetectionManager.Enabled = deviceDetectionAssembly.GetType("Sitecore.CES.DeviceDetection.DeviceDetectionManager").GetProperty("IsEnabled").GetValue(null, null).ToString().Equals("True");
-                    DeviceDetectionManager.Cache = scapi.Caching.CacheManager.GetAllCaches().First(x => x.Name.Equals("DeviceDetection"));
+                    DeviceDetectionManager.Cache = (scapi.Caching.Cache)scapi.Caching.CacheManager.GetAllCaches().First(x => x.Name.Equals("DeviceDetection"));
                     CacheEntryRepeater.DataSource = DeviceDetectionManager.Cache.GetCacheKeys();
                     CacheEntryRepeater.DataBind();
                 }

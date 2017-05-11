@@ -21,7 +21,7 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Factories
         {
             return new FiftyOneDegreesService(new SitecoreSettingsWrapper(),
                 httpContextWrapper, new HttpRuntimeCacheWrapper(httpContextWrapper, new HttpRuntimeWrapper()),
-                new WebRequestWrapper(new JsonSerializer()));
+                new WebRequestWrapper(new JsonSerializer()), new BrowserCapabilitiesTypeService());
         }
     }
 }

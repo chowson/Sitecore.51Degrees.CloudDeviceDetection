@@ -20,15 +20,18 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services
         private readonly IHttpContextWrapper _httpContextWrapper;
         private readonly IHttpRuntimeCacheWrapper _httpRuntimeCacheWrapper;
         private readonly IWebRequestWrapper _webRequestWrapper;
+	    private readonly IBrowserCapabilitiesTypeService _browserCapabilitiesTypeService;
 
-        public FiftyOneDegreesService(ISitecoreSettingsWrapper sitecoreSettingsWrapper,
+
+		public FiftyOneDegreesService(ISitecoreSettingsWrapper sitecoreSettingsWrapper,
             IHttpContextWrapper httpContextWrapper, IHttpRuntimeCacheWrapper httpRuntimeCacheWrapper,
-            IWebRequestWrapper webRequestWrapper)
+            IWebRequestWrapper webRequestWrapper, IBrowserCapabilitiesTypeService browserCapabilitiesTypeService)
         {
             _sitecoreSettingsWrapper = sitecoreSettingsWrapper;
             _httpContextWrapper = httpContextWrapper;
             _httpRuntimeCacheWrapper = httpRuntimeCacheWrapper;
             _webRequestWrapper = webRequestWrapper;
+	        _browserCapabilitiesTypeService = browserCapabilitiesTypeService;
         }
 
         public void SetBrowserCapabilities()
@@ -46,7 +49,10 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services
 
                 foreach (var deviceProperty in detectedDevice.DeviceProperties)
                 {
-                    browserCapabilities.Capabilities[deviceProperty] = detectedDevice[deviceProperty];
+	                if (_browserCapabilitiesTypeService.CheckValueType(deviceProperty, detectedDevice[deviceProperty]))
+	                {
+		                browserCapabilities.Capabilities[deviceProperty] = detectedDevice[deviceProperty];
+	                }
                 }
 
                 browserCapabilities.Capabilities["isMobileDevice"] = IsMobileDevice(detectedDevice);
