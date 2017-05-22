@@ -58,6 +58,7 @@
     <Compile Include="Data\DetectedDeviceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BrowserCapabilitiesServiceTests.cs" />
+    <Compile Include="Services\BrowserCapabilitiesTypeServiceTests.cs" />
     <Compile Include="Services\DeviceServiceTests.cs" />
     <Compile Include="Services\FiftyOneDegreesPropertyServiceTests.cs" />
     <Compile Include="Services\FiftyOneDegreesServiceTests.cs" />

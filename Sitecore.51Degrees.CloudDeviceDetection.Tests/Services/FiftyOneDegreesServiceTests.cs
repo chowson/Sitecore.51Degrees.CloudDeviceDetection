@@ -6,6 +6,7 @@ using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services;
 using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Services.Data;
 using Sitecore.FiftyOneDegrees.CloudDeviceDetection.Settings;
 using Sitecore.FiftyOneDegrees.CloudDeviceDetection.System.Wrappers;
+using System.Linq;
 
 namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Tests.Services
 {
@@ -30,7 +31,7 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Tests.Services
         }
 
         [Test]
-        public void CapabilitiesAreAddedToBrowser()
+        public void ValidCapabilitiesAreAddedToBrowser()
         {
             FiftyOneDegreesServiceTester.Where()
                 .SetupApiReponse()
@@ -38,7 +39,17 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Tests.Services
                 .VerifyCapabilitiesAdded();
         }
 
-        [Test]
+		[Test]
+		public void InvalidCapabilitiesAreNotAddedToBrowser()
+		{
+			FiftyOneDegreesServiceTester.Where()
+				.SetupApiReponse()
+				.SetCapabilityTypeCheckToReturnFalse()
+				.CallSetBrowserCapabilities()
+				.VerifyCapabilitiesAreNotAdded();
+		}
+
+		[Test]
         public void ApiCallIsNotMadeWhenCacheIsWarm()
         {
             FiftyOneDegreesServiceTester.Where()
@@ -147,11 +158,17 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Tests.Services
                 return this;
             }
 
-            #endregion
+	        public FiftyOneDegreesServiceTester SetCapabilityTypeCheckToReturnFalse()
+	        {
+				_browserCapabilitiesTypeService.Setup(x => x.CheckValueType(It.IsAny<string>(), It.IsAny<string>()));
+				return this;
+	        }
 
-            #region Verify Methods
+			#endregion
 
-            public void VerifyMethodIsAborted()
+			#region Verify Methods
+
+			public void VerifyMethodIsAborted()
             {
                 _httpContextItems.Verify(x => x.Add("FiftyOneDegreesService.SetBrowserCapabilities", true), Times.Never);
             }
@@ -182,9 +199,20 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Tests.Services
                 }
             }
 
-            #endregion
-            
-            private static string FormattedCacheKey
+			public void VerifyCapabilitiesAreNotAdded()
+			{
+				var result = (IDictionary<string, object>)_apiResult;
+				var capabilities = (IDictionary<string, object>)result["Values"];
+
+				foreach (var capability in capabilities.Keys)
+				{
+					Assert.That(_httpBrowser.Object.Capabilities.Keys.OfType<string>().Contains(capability), Is.False, "Invalid value for capability was addeed to Browser capabilities.");
+				}
+			}
+
+			#endregion
+
+			private static string FormattedCacheKey
             {
                 get { return string.Format(CacheKey, UserAgent); }
             }
