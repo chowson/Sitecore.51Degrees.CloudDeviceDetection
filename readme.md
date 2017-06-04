@@ -1,4 +1,4 @@
-##What does it do?
+## What does it do?
 
 This project provides device detection for Sitecore using the cloud web service provided by 51 Degrees (https://51degrees.com/products/device-detection/cloud).
 
@@ -23,7 +23,7 @@ It provides 4 things:
   * when a visitor's screen height pixels matches a condition
 4. A 51Degrees implementation of _DeviceInformationProviderBase_ to enable built in Device Detection functionality within Sitecore 8 and Device Reporting within Experience Analytics of xDB
   
-##What prerequisites do you need?
+## What prerequisites do you need?
 
 To use this module, you will need to sign up for an account with 51 degrees, all rules provided are available on their free tier.
 
@@ -33,7 +33,7 @@ For full Device Detection functionality in Sitecore 8, a _Premium Cloud_ subscri
   * HasTouchScreen
   * Javascript
 
-##Installation
+## Installation
 
 1. Install the Sitecore package _/SitecorePackages/Sitecore.51Degrees.CloudDeviceDetection.zip_
   * If you are using Sitecore 8, click Skip on any conflicts (extra items are needed for compatibility with older Sitecore versions)
@@ -44,7 +44,7 @@ For full Device Detection functionality in Sitecore 8, a _Premium Cloud_ subscri
 
 To check that the plugin is working, navigate to _/Sitecore/Admin/DeviceDetectionStatus.aspx where you should see details about your device if the module is working.
 
-##Customisations
+## Customisations
 
 A 51degrees endpoint is provided by default in the setting _Sitecore.FiftyOneDegrees.CloudDeviceDetection.ApiEndpoint_, you can override this but the module requires the values of _IsMobile_, _DeviceType_, _IsConsole_, _IsEReader_, _IsMediaHub_, _IsSmallScreen_, _IsSmartPhone_, _IsTablet_, _IsTv_, _BrowserName_, _BrowserVersion_, _ScreenPixelsHeight_, _ScreenPixelsWidth_, _PlatformName_ and _PlatformVersion_ to function.
 
