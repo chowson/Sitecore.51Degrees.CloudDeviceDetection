@@ -6,14 +6,21 @@ using Sitecore.Rules.Conditions;
 
 namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Rules.DeviceDetection
 {
-    public class VisitorsDeviceType<T> : WhenCondition<T> where T : RuleContext
+	public class VisitorsDeviceType<T> : WhenCondition<T> where T : RuleContext
     {
         public string DeviceType { get; set; }
 
         protected override bool Execute(T ruleContext)
         {
-            var httpRequest = new HttpContextWrapper().Request;
-            var browserCapabilitiesService = new BrowserCapabilitiesService(new HttpContextWrapper().Request);
+			Assert.ArgumentNotNull(ruleContext, "ruleContext");
+
+			IHttpRequestWrapper httpRequestWrapper = new HttpContextWrapper().Request;
+			if (httpRequestWrapper == null)
+			{
+				return false;
+			}
+
+			var browserCapabilitiesService = new BrowserCapabilitiesService(httpRequestWrapper);
 
             bool result;
 

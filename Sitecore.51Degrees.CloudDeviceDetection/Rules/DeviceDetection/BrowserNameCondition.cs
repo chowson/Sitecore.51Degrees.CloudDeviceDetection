@@ -6,7 +6,7 @@ using Sitecore.Rules.Conditions;
 
 namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Rules.DeviceDetection
 {
-    public class BrowserNameCondition<T> : StringOperatorCondition<T> where T : RuleContext
+	public class BrowserNameCondition<T> : StringOperatorCondition<T> where T : RuleContext
     {
         public string BrowserName { get; set; }
 
@@ -14,7 +14,13 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Rules.DeviceDetection
         {
             Assert.ArgumentNotNull(ruleContext, "ruleContext");
 
-            var browserCapabilitiesService = new BrowserCapabilitiesService(new HttpContextWrapper().Request);
+			IHttpRequestWrapper httpRequestWrapper = new HttpContextWrapper().Request;
+			if (httpRequestWrapper == null)
+			{
+				return false;
+			}
+
+			var browserCapabilitiesService = new BrowserCapabilitiesService(httpRequestWrapper);
 
             return Compare(browserCapabilitiesService.GetStringProperty("BrowserName"), BrowserName);
         }
