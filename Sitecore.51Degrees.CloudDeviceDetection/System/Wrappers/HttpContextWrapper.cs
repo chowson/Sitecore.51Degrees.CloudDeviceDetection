@@ -3,7 +3,7 @@ using System.Web;
 
 namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.System.Wrappers
 {
-    public interface IHttpContextWrapper
+	public interface IHttpContextWrapper
     {
         IHttpRequestWrapper Request { get; }
 
@@ -28,7 +28,15 @@ namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.System.Wrappers
 
         public IHttpRequestWrapper Request
         {
-            get { return new HttpRequestWrapper(GetHttpContext().Request); }
+            get
+			{
+				if (GetHttpContext() == null || GetHttpContext().Request == null)
+				{
+					return null;
+				}
+
+				return new HttpRequestWrapper(GetHttpContext().Request);
+			}
         }
 
         public HttpContext GetHttpContext()

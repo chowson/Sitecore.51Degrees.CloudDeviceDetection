@@ -6,13 +6,19 @@ using Sitecore.Rules.Conditions;
 
 namespace Sitecore.FiftyOneDegrees.CloudDeviceDetection.Rules.DeviceDetection
 {
-    public class ScreenPixelsWidthCondition<T> : IntegerComparisonCondition<T> where T : RuleContext
+	public class ScreenPixelsWidthCondition<T> : IntegerComparisonCondition<T> where T : RuleContext
     {
         protected override bool Execute(T ruleContext)
         {
             Assert.ArgumentNotNull(ruleContext, "ruleContext");
 
-            var browserCapabilitiesService = new BrowserCapabilitiesService(new HttpContextWrapper().Request);
+			IHttpRequestWrapper httpRequestWrapper = new HttpContextWrapper().Request;
+			if (httpRequestWrapper == null)
+			{
+				return false;
+			}
+
+			var browserCapabilitiesService = new BrowserCapabilitiesService(httpRequestWrapper);
 
             var screenPixelsWidthString = browserCapabilitiesService.GetStringProperty("ScreenPixelsWidth");
             var screenPixelsWidth = screenPixelsWidthString.Equals("Unknown")
